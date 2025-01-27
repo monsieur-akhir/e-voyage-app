@@ -1,0 +1,117 @@
+<!-- templates/email/otp-template.html -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Code OTP</title>
+
+    <style type="text/css">
+        html, body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        div[style*="margin: 16px 0"] {
+            margin:0 !important;
+        }
+        table, td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto;
+        }
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+        .mobile-link--footer a,
+        a[x-apple-data-detectors] {
+            color:inherit !important;
+            text-decoration: underline !important;
+        }
+        /* Media Queries */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+                margin: auto !important;
+            }
+            .fluid,
+            .fluid-centered {
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="#eff3f3" width="100%" style="margin: 0;">
+<center style="width: 100%; background: #eff3f3;">
+    <!-- Email Header : BEGIN -->
+    <table cellspacing="0" cellpadding="0" border="0" align="center" width="800" style="margin: auto;" class="email-container">
+        <tr>
+            <td style="padding: 10px 0; text-align: center">
+                <img src="https://logo-marque.com/wp-content/uploads/2021/09/Orange-S.A.-Logo.png" width="325px" alt="logo" border="0"/>
+            </td>
+        </tr>
+        <tr style="text-align: center;">
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 0; text-align: center">
+                <h4>
+                    <b style="font-size: 25px;color: #414042;">{{entete}}</b><br/>
+                    <span style="font-weight: 100;font-size: 15px;color: #414042;">{{titre}}</span>
+                </h4>
+            </td>
+        </tr>
+    </table>
+    <!-- Email Header : END -->
+
+    <!-- Email Body : BEGIN -->
+    <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" style="border-radius:15px;margin: auto;" width="800" class="email-container">
+        <tr>
+            <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #5a595c;">
+                <br/>
+                <span>Nous vous confirmons que le mot de passe associé à votre compte a été modifié avec succès.</span>
+                <br/><br/>
+                <span style="color: #008fe1;">Si vous n'êtes pas à l'origine de ce changement, veuillez nous contacter immédiatement afin de sécuriser votre compte.</span>
+                <br/><br/>
+                    Vous pouvez également réinitialiser votre mot de passe en cas de besoin.
+                <br/><br/><br/>
+            </td>
+        </tr>
+    </table>
+    <!-- Email Body : END -->
+
+    <!-- Email Footer : BEGIN -->
+    <table cellspacing="0" cellpadding="0" border="0" align="center" width="600" style="margin: auto;" class="email-container">
+        <tr>
+            <td style="padding: 20px 10px;width: 100%;font-size: 14px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;">
+                <span style="color:#F81766"><i>Ce mail est automatique, merci de ne pas y répondre !</i> </span>
+            </td>
+        </tr>
+        <tr style="text-align: center;">
+            <td>
+                © {{nomMinistere}}<br/><br/><br/>
+                <span style="font-size: 12px; color: #888888;">Email envoyé le {{currentDate}}</span>
+            </td>
+        </tr>
+    </table>
+    <!-- Email Footer : END -->
+</center>
+</body>
+</html>

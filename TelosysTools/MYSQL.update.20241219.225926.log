@@ -1,0 +1,103 @@
+Update date : Thu Dec 19 22:59:26 WEST 2024
+ 
+ Table 'cards' not found in repository
+ (+) table 'cards' added
+ 
+ Table 'customers' not found in repository
+ (+) table 'customers' added
+ 
+ Table 'transactions' not found in repository
+ (+) table 'transactions' added
+ 
+ Table 'activation_prelevement' no longer exists in database
+ (-) table 'activation_prelevement' removed
+ 
+ Table 'api_endpoint' no longer exists in database
+ (-) table 'api_endpoint' removed
+ 
+ Table 'api_logs' no longer exists in database
+ (-) table 'api_logs' removed
+ 
+ Table 'api_user' no longer exists in database
+ (-) table 'api_user' removed
+ 
+ Table 'conig_api_externe' no longer exists in database
+ (-) table 'conig_api_externe' removed
+ 
+ Table 'debit_order_notification' no longer exists in database
+ (-) table 'debit_order_notification' removed
+ 
+ Table 'energy_recharge' no longer exists in database
+ (-) table 'energy_recharge' removed
+ 
+ Table 'exchange_rate' no longer exists in database
+ (-) table 'exchange_rate' removed
+ 
+ Table 'field_mapping' no longer exists in database
+ (-) table 'field_mapping' removed
+ 
+ Table 'fonctionalite' no longer exists in database
+ (-) table 'fonctionalite' removed
+ 
+ Table 'logs' no longer exists in database
+ (-) table 'logs' removed
+ 
+ Table 'mandat' no longer exists in database
+ (-) table 'mandat' removed
+ 
+ Table 'mandates_signature_notification' no longer exists in database
+ (-) table 'mandates_signature_notification' removed
+ 
+ Table 'offers' no longer exists in database
+ (-) table 'offers' removed
+ 
+ Table 'order_mandate' no longer exists in database
+ (-) table 'order_mandate' removed
+ 
+ Table 'order_notification_statut' no longer exists in database
+ (-) table 'order_notification_statut' removed
+ 
+ Table 'order_status' no longer exists in database
+ (-) table 'order_status' removed
+ 
+ Table 'param_notification' no longer exists in database
+ (-) table 'param_notification' removed
+ 
+ Table 'parametre_generaux' no longer exists in database
+ (-) table 'parametre_generaux' removed
+ 
+ Table 'partner' no longer exists in database
+ (-) table 'partner' removed
+ 
+ Table 'partner_headers' no longer exists in database
+ (-) table 'partner_headers' removed
+ 
+ Table 'partner_required_fields' no longer exists in database
+ (-) table 'partner_required_fields' removed
+ 
+ Table 'partner_response' no longer exists in database
+ (-) table 'partner_response' removed
+ 
+ Table 'partners' no longer exists in database
+ (-) table 'partners' removed
+ 
+ Table 'role' no longer exists in database
+ (-) table 'role' removed
+ 
+ Table 'role_fonctionalite' no longer exists in database
+ (-) table 'role_fonctionalite' removed
+ 
+ Table 'service' no longer exists in database
+ (-) table 'service' removed
+ 
+ Table 'services' no longer exists in database
+ (-) table 'services' removed
+ 
+ Table 'transaction_prelevement' no longer exists in database
+ (-) table 'transaction_prelevement' removed
+ 
+ Table 'transaction_prelevement_etape' no longer exists in database
+ (-) table 'transaction_prelevement_etape' removed
+ 
+ Table 'user' no longer exists in database
+ (-) table 'user' removed

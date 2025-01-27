@@ -1,0 +1,139 @@
+Update date : Sun Jan 12 17:34:17 WEST 2025
+ 
+ Table 'alerts' found in repository
+ . Column 'company_id' added
+ . Column 'status' added
+ . Foreign key 'alerts_ibfk_1' updated
+ . Foreign key 'alerts_ibfk_2' added
+ (*) table 'alerts' updated : 4 change(s)
+ 
+ Table 'api_logs' found in repository
+ (=) table 'api_logs' unchanged
+ 
+ Table 'api_user' found in repository
+ (=) table 'api_user' unchanged
+ 
+ Table 'bookings' found in repository
+ . Column 'company_id' added
+ . Column 'seat_number' : NotNull changed to false
+ . Column 'seat_number' updated
+ . Foreign key 'bookings_ibfk_1' updated
+ . Foreign key 'bookings_ibfk_2' updated
+ . Foreign key 'bookings_ibfk_3' updated
+ . Foreign key 'bookings_ibfk_4' added
+ (*) table 'bookings' updated : 6 change(s)
+ 
+ Table 'buses' found in repository
+ . Column 'company_id' added
+ . Column 'bus_number' : NotNull changed to false
+ . Column 'bus_number' updated
+ . Column 'seat_numbers' added
+ . Column 'status' added
+ . Foreign key 'buses_ibfk_1' updated
+ . Foreign key 'buses_ibfk_2' added
+ (*) table 'buses' updated : 6 change(s)
+ 
+ Table 'cities' not found in repository
+ (+) table 'cities' added
+ 
+ Table 'companies' found in repository
+ . Column 'license_number' : NotNull changed to false
+ . Column 'license_number' updated
+ . Column 'rating' added
+ . Column 'status' added
+ (*) table 'companies' updated : 3 change(s)
+ 
+ Table 'financial_reports' found in repository
+ . Column 'company_id' : NotNull changed to true
+ . Column 'company_id' updated
+ . Column 'status' added
+ (*) table 'financial_reports' updated : 2 change(s)
+ 
+ Table 'fonctionalite' found in repository
+ (=) table 'fonctionalite' unchanged
+ 
+ Table 'logs' found in repository
+ (=) table 'logs' unchanged
+ 
+ Table 'notifications' found in repository
+ . Column 'company_id' added
+ . Foreign key 'notifications_ibfk_1' updated
+ . Foreign key 'notifications_ibfk_2' added
+ (*) table 'notifications' updated : 3 change(s)
+ 
+ Table 'param_notification' found in repository
+ (=) table 'param_notification' unchanged
+ 
+ Table 'parametre_generaux' found in repository
+ (=) table 'parametre_generaux' unchanged
+ 
+ Table 'payments' found in repository
+ . Column 'company_id' added
+ . Foreign key 'payments_ibfk_2' added
+ (*) table 'payments' updated : 2 change(s)
+ 
+ Table 'permissions' not found in repository
+ (+) table 'permissions' added
+ 
+ Table 'role' found in repository
+ (=) table 'role' unchanged
+ 
+ Table 'role_fonctionalite' found in repository
+ (=) table 'role_fonctionalite' unchanged
+ 
+ Table 'role_permissions' not found in repository
+ (+) table 'role_permissions' added
+ 
+ Table 'roles' found in repository
+ . Column 'status' added
+ (*) table 'roles' updated : 1 change(s)
+ 
+ Table 'routes' found in repository
+ . Column 'origin' deleted
+ . Column 'destination' deleted
+ . Column 'origin_city_id' added
+ . Column 'destination_city_id' added
+ . Column 'duration' : NotNull changed to false
+ . Column 'duration' updated
+ . Column 'status' added
+ . Column 'rating' added
+ . Foreign key 'routes_ibfk_2' added
+ . Foreign key 'routes_ibfk_3' added
+ (*) table 'routes' updated : 9 change(s)
+ 
+ Table 'tickets' found in repository
+ . Column 'company_id' added
+ . Foreign key 'tickets_ibfk_2' updated
+ . Foreign key 'tickets_ibfk_3' added
+ (*) table 'tickets' updated : 3 change(s)
+ 
+ Table 'travel_schedules' not found in repository
+ (+) table 'travel_schedules' added
+ 
+ Table 'trip_tracking' found in repository
+ . Column 'is_deleted' deleted
+ . Column 'deleted_at' deleted
+ . Column 'deleted_by' deleted
+ . Column 'company_id' added
+ . Column 'route_id' : NotNull changed to true
+ . Column 'route_id' updated
+ . Column 'status' added
+ . Foreign key 'trip_tracking_ibfk_1' updated
+ . Foreign key 'trip_tracking_ibfk_2' added
+ (*) table 'trip_tracking' updated : 8 change(s)
+ 
+ Table 'user' found in repository
+ (=) table 'user' unchanged
+ 
+ Table 'users' found in repository
+ . Column 'company_id' added
+ . Column 'email' : NotNull changed to false
+ . Column 'email' updated
+ . Column 'phone' : NotNull changed to false
+ . Column 'phone' updated
+ . Column 'status' added
+ . Foreign key 'users_ibfk_1' added
+ (*) table 'users' updated : 5 change(s)
+ 
+ Table 'user_roles' no longer exists in database
+ (-) table 'user_roles' removed

@@ -1,0 +1,2243 @@
+{
+	"info": {
+		"_postman_id": "59b61128-5b59-4136-b296-8346a19c8218",
+		"name": "tech_dev_eVoyageBackend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37685494"
+	},
+	"item": [
+		{
+			"name": "alerts",
+			"item": [
+				{
+					"name": "alerts-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"routeId\": \"\",\n\t\t\"type\": \"\",\n\t\t\"message\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/alerts/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "alerts-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"type\": \"\",\n\t\t\t\"message\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/alerts/create"
+					},
+					"response": []
+				},
+				{
+					"name": "alerts-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"type\": \"\",\n\t\t\t\"message\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/alerts/update"
+					},
+					"response": []
+				},
+				{
+					"name": "alerts-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/alerts/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "apiLogs",
+			"item": [
+				{
+					"name": "apiLogs-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"createdDate\": \"\",\n\t\t\"lastModifiedBy\": \"\",\n\t\t\"lastModifiedDate\": \"\",\n\t\t\"requestBody\": \"\",\n\t\t\"requestHeaders\": \"\",\n\t\t\"requestMethod\": \"\",\n\t\t\"requestTime\": \"\",\n\t\t\"requestUrl\": \"\",\n\t\t\"responseBody\": \"\",\n\t\t\"responseStatus\": \"\",\n\t\t\"responseTime\": \"\",\n\t\t\"status\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/apiLogs/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "apiLogs-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"createdDate\": \"\",\n\t\t\t\"lastModifiedBy\": \"\",\n\t\t\t\"lastModifiedDate\": \"\",\n\t\t\t\"requestBody\": \"\",\n\t\t\t\"requestHeaders\": \"\",\n\t\t\t\"requestMethod\": \"\",\n\t\t\t\"requestTime\": \"\",\n\t\t\t\"requestUrl\": \"\",\n\t\t\t\"responseBody\": \"\",\n\t\t\t\"responseStatus\": \"\",\n\t\t\t\"responseTime\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/apiLogs/create"
+					},
+					"response": []
+				},
+				{
+					"name": "apiLogs-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"createdDate\": \"\",\n\t\t\t\"lastModifiedBy\": \"\",\n\t\t\t\"lastModifiedDate\": \"\",\n\t\t\t\"requestBody\": \"\",\n\t\t\t\"requestHeaders\": \"\",\n\t\t\t\"requestMethod\": \"\",\n\t\t\t\"requestTime\": \"\",\n\t\t\t\"requestUrl\": \"\",\n\t\t\t\"responseBody\": \"\",\n\t\t\t\"responseStatus\": \"\",\n\t\t\t\"responseTime\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/apiLogs/update"
+					},
+					"response": []
+				},
+				{
+					"name": "apiLogs-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/apiLogs/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "apiUser",
+			"item": [
+				{
+					"name": "apiUser-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\"email\": \"\",\n\t\t\"firstConnection\": \"\",\n\t\t\"isActive\": \"\",\n\t\t\"isConnected\": \"\",\n\t\t\"isDefaultPassword\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"isLocked\": \"\",\n\t\t\"isValidPassCode\": \"\",\n\t\t\"isValidToken\": \"\",\n\t\t\"lastActivityDate\": \"\",\n\t\t\"lastConnectionDate\": \"\",\n\t\t\"lastLockDate\": \"\",\n\t\t\"login\": \"\",\n\t\t\"loginAttempts\": \"\",\n\t\t\"otpCode\": \"\",\n\t\t\"passCode\": \"\",\n\t\t\"passCodeCreatedAt\": \"\",\n\t\t\"passCodeExpireAt\": \"\",\n\t\t\"password\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"searchString\": \"\",\n\t\t\"telephone\": \"\",\n\t\t\"token\": \"\",\n\t\t\"tokenCreatedAt\": \"\",\n\t\t\"tokenExpireAt\": \"\",\n\t\t\"type\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/apiUser/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "apiUser-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/apiUser/create"
+					},
+					"response": []
+				},
+				{
+					"name": "apiUser-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/apiUser/update"
+					},
+					"response": []
+				},
+				{
+					"name": "apiUser-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/apiUser/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bookings",
+			"item": [
+				{
+					"name": "bookings-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"userId\": \"\",\n\t\t\"routeId\": \"\",\n\t\t\"busId\": \"\",\n\t\t\"seatNumber\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"numberOfSeats\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/bookings/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "bookings-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"user\":\"5\",\n    \"token\":\"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjUsInJvbGVJZCI6MSwiaWF0IjoxNzM3NjYwMjcxLCJleHAiOjE3Mzc2NjExNzF9.vpARg9vnulALwOdHxMV3qNcmApA1vwm9DOugOYF0Iz0\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"1\",\n\t\t\t\"userId\": \"5\",\n\t\t\t\"departureId\": \"1\",\n\t\t\t\"busId\": \"1\",\n\t\t\t\"status\": \"pending\",\n\t\t\t\"destinationStationId\": \"2\",\n\t\t\t\"originStationId\": \"1\",\n\t\t\t\"numberOfSeats\": \"2\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/bookings/create"
+					},
+					"response": []
+				},
+				{
+					"name": "bookings-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"userId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"busId\": \"\",\n\t\t\t\"seatNumber\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\",\n\t\t\t\"numberOfSeats\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/bookings/update"
+					},
+					"response": []
+				},
+				{
+					"name": "bookings-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/bookings/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "buses",
+			"item": [
+				{
+					"name": "buses-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"routeId\": \"\",\n\t\t\"busNumber\": \"\",\n\t\t\"capacity\": \"\",\n\t\t\"availableSeats\": \"\",\n\t\t\"seatNumbers\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/buses/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "buses-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"busNumber\": \"\",\n\t\t\t\"capacity\": \"\",\n\t\t\t\"availableSeats\": \"\",\n\t\t\t\"seatNumbers\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/buses/create"
+					},
+					"response": []
+				},
+				{
+					"name": "buses-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"busNumber\": \"\",\n\t\t\t\"capacity\": \"\",\n\t\t\t\"availableSeats\": \"\",\n\t\t\t\"seatNumbers\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/buses/update"
+					},
+					"response": []
+				},
+				{
+					"name": "buses-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/buses/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cities",
+			"item": [
+				{
+					"name": "cities-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"name\": \"\",\n\t\t\"isAvailable\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/cities/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "cities-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"name\": \"\",\n\t\t\t\"isAvailable\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/cities/create"
+					},
+					"response": []
+				},
+				{
+					"name": "cities-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"isAvailable\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/cities/update"
+					},
+					"response": []
+				},
+				{
+					"name": "cities-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/cities/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "companies",
+			"item": [
+				{
+					"name": "companies-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"name\": \"\",\n\t\t\"address\": \"\",\n\t\t\"contact\": \"\",\n\t\t\"licenseNumber\": \"\",\n\t\t\"rating\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/companies/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "companies-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"name\": \"\",\n\t\t\t\"address\": \"\",\n\t\t\t\"contact\": \"\",\n\t\t\t\"licenseNumber\": \"\",\n\t\t\t\"rating\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/companies/create"
+					},
+					"response": []
+				},
+				{
+					"name": "companies-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"address\": \"\",\n\t\t\t\"contact\": \"\",\n\t\t\t\"licenseNumber\": \"\",\n\t\t\t\"rating\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/companies/update"
+					},
+					"response": []
+				},
+				{
+					"name": "companies-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/companies/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "departs",
+			"item": [
+				{
+					"name": "departs-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"5\",\n    \"token\":\"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjUsInJvbGVJZCI6MSwiaWF0IjoxNzM3NjYwMjcxLCJleHAiOjE3Mzc2NjExNzF9.vpARg9vnulALwOdHxMV3qNcmApA1vwm9DOugOYF0Iz0\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"busId\": \"\",\n\t\t\"originStationId\": \"\",\n\t\t\"destinationStationId\": \"\",\n\t\t\"departureDate\": \"\",\n\t\t\"departureTime\": \"\",\n        \"stationsNameArrival\": \"\",\n        \"stationsNameDeparture\": \"\",\n        \"villeArrivee\": \"Aboisso\",\n        \"villeDepart\": \"Abidjan\",\n\t\t\"price\": \"\",\n\t\t\"maxSeats\": \"\",\n\t\t\"availableSeats\": \"\",\n\t\t\"isActive\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/departs/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "departs-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"busId\": \"\",\n\t\t\t\"originStationId\": \"\",\n\t\t\t\"destinationStationId\": \"\",\n\t\t\t\"departureDate\": \"\",\n\t\t\t\"departureTime\": \"\",\n\t\t\t\"price\": \"\",\n\t\t\t\"maxSeats\": \"\",\n\t\t\t\"availableSeats\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/departs/create"
+					},
+					"response": []
+				},
+				{
+					"name": "departs-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"busId\": \"\",\n\t\t\t\"originStationId\": \"\",\n\t\t\t\"destinationStationId\": \"\",\n\t\t\t\"departureDate\": \"\",\n\t\t\t\"departureTime\": \"\",\n\t\t\t\"price\": \"\",\n\t\t\t\"maxSeats\": \"\",\n\t\t\t\"availableSeats\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/departs/update"
+					},
+					"response": []
+				},
+				{
+					"name": "departs-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/departs/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "districts",
+			"item": [
+				{
+					"name": "districts-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"name\": \"\",\n\t\t\"cityId\": \"\",\n\t\t\"isAvailable\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/districts/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "districts-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"name\": \"\",\n\t\t\t\"cityId\": \"\",\n\t\t\t\"isAvailable\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/districts/create"
+					},
+					"response": []
+				},
+				{
+					"name": "districts-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"cityId\": \"\",\n\t\t\t\"isAvailable\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/districts/update"
+					},
+					"response": []
+				},
+				{
+					"name": "districts-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/districts/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "financialReports",
+			"item": [
+				{
+					"name": "financialReports-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"totalRevenue\": \"\",\n\t\t\"totalBookings\": \"\",\n\t\t\"reportDate\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/financialReports/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "financialReports-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"totalRevenue\": \"\",\n\t\t\t\"totalBookings\": \"\",\n\t\t\t\"reportDate\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/financialReports/create"
+					},
+					"response": []
+				},
+				{
+					"name": "financialReports-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"totalRevenue\": \"\",\n\t\t\t\"totalBookings\": \"\",\n\t\t\t\"reportDate\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/financialReports/update"
+					},
+					"response": []
+				},
+				{
+					"name": "financialReports-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/financialReports/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fonctionalite",
+			"item": [
+				{
+					"name": "fonctionalite-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"code\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isAvailableForUser\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"parentId\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/fonctionalite/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "fonctionalite-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"code\": \"\",\n\t\t\t\"isAvailableForUser\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"parentId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/fonctionalite/create"
+					},
+					"response": []
+				},
+				{
+					"name": "fonctionalite-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"isAvailableForUser\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"parentId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/fonctionalite/update"
+					},
+					"response": []
+				},
+				{
+					"name": "fonctionalite-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/fonctionalite/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "logs",
+			"item": [
+				{
+					"name": "logs-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"actionService\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"date\": \"\",\n\t\t\"idStatus\": \"\",\n\t\t\"ipadress\": \"\",\n\t\t\"isConnexion\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"login\": \"\",\n\t\t\"machine\": \"\",\n\t\t\"nom\": \"\",\n\t\t\"prenom\": \"\",\n\t\t\"request\": \"\",\n\t\t\"response\": \"\",\n\t\t\"searchString\": \"\",\n\t\t\"statusConnection\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"uri\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/logs/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "logs-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"actionService\": \"\",\n\t\t\t\"date\": \"\",\n\t\t\t\"idStatus\": \"\",\n\t\t\t\"ipadress\": \"\",\n\t\t\t\"isConnexion\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"machine\": \"\",\n\t\t\t\"nom\": \"\",\n\t\t\t\"prenom\": \"\",\n\t\t\t\"request\": \"\",\n\t\t\t\"response\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"statusConnection\": \"\",\n\t\t\t\"uri\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/logs/create"
+					},
+					"response": []
+				},
+				{
+					"name": "logs-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"actionService\": \"\",\n\t\t\t\"date\": \"\",\n\t\t\t\"idStatus\": \"\",\n\t\t\t\"ipadress\": \"\",\n\t\t\t\"isConnexion\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"machine\": \"\",\n\t\t\t\"nom\": \"\",\n\t\t\t\"prenom\": \"\",\n\t\t\t\"request\": \"\",\n\t\t\t\"response\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"statusConnection\": \"\",\n\t\t\t\"uri\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/logs/update"
+					},
+					"response": []
+				},
+				{
+					"name": "logs-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/logs/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notifications",
+			"item": [
+				{
+					"name": "notifications-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"userId\": \"\",\n\t\t\"type\": \"\",\n\t\t\"content\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/notifications/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "notifications-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"userId\": \"\",\n\t\t\t\"type\": \"\",\n\t\t\t\"content\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/notifications/create"
+					},
+					"response": []
+				},
+				{
+					"name": "notifications-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"userId\": \"\",\n\t\t\t\"type\": \"\",\n\t\t\t\"content\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/notifications/update"
+					},
+					"response": []
+				},
+				{
+					"name": "notifications-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/notifications/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "paramNotification",
+			"item": [
+				{
+					"name": "paramNotification-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"lang\": \"\",\n\t\t\"message\": \"\",\n\t\t\"type\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/paramNotification/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "paramNotification-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"lang\": \"\",\n\t\t\t\"message\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/paramNotification/create"
+					},
+					"response": []
+				},
+				{
+					"name": "paramNotification-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"lang\": \"\",\n\t\t\t\"message\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/paramNotification/update"
+					},
+					"response": []
+				},
+				{
+					"name": "paramNotification-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/paramNotification/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "parametreGeneraux",
+			"item": [
+				{
+					"name": "parametreGeneraux-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"paramName\": \"\",\n\t\t\"paramValue\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/parametreGeneraux/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "parametreGeneraux-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\",\n\t\t\t\"paramName\": \"\",\n\t\t\t\"paramValue\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/parametreGeneraux/create"
+					},
+					"response": []
+				},
+				{
+					"name": "parametreGeneraux-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\",\n\t\t\t\"paramName\": \"\",\n\t\t\t\"paramValue\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/parametreGeneraux/update"
+					},
+					"response": []
+				},
+				{
+					"name": "parametreGeneraux-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/parametreGeneraux/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "payments-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"bookingId\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"amount\": \"\",\n\t\t\"paymentMethod\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/payments/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "payments-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\t\"user\":\"5\",\n    \"token\":\"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjUsInJvbGVJZCI6MSwiaWF0IjoxNzM3NjYxMjkzLCJleHAiOjE3Mzc2NjIxOTN9.hsN3BTbwende6bklIBscbX0kh0XJIIZFhpKNPao2Yn4\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"bookingId\": \"1\",\n\t\t\t\"companyId\": \"1\",\n\t\t\t\"amount\": \"5000\",\n\t\t\t\"paymentMethod\": \"Orange Money\"\n\t\t\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/payments/create"
+					},
+					"response": []
+				},
+				{
+					"name": "payments-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"bookingId\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"amount\": \"\",\n\t\t\t\"paymentMethod\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/payments/update"
+					},
+					"response": []
+				},
+				{
+					"name": "payments-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/payments/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "permissions",
+			"item": [
+				{
+					"name": "permissions-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"name\": \"\",\n\t\t\"description\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/permissions/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "permissions-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"name\": \"\",\n\t\t\t\"description\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/permissions/create"
+					},
+					"response": []
+				},
+				{
+					"name": "permissions-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"description\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/permissions/update"
+					},
+					"response": []
+				},
+				{
+					"name": "permissions-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/permissions/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "role-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/role/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "role-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"libelle\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/role/create"
+					},
+					"response": []
+				},
+				{
+					"name": "role-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"libelle\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/role/update"
+					},
+					"response": []
+				},
+				{
+					"name": "role-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/role/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "roleFonctionalite",
+			"item": [
+				{
+					"name": "roleFonctionalite-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"fonctionnaliteId\": \"\",\n\t\t\"roleId\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/roleFonctionalite/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "roleFonctionalite-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"fonctionnaliteId\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/roleFonctionalite/create"
+					},
+					"response": []
+				},
+				{
+					"name": "roleFonctionalite-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"fonctionnaliteId\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/roleFonctionalite/update"
+					},
+					"response": []
+				},
+				{
+					"name": "roleFonctionalite-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/roleFonctionalite/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rolePermissions",
+			"item": [
+				{
+					"name": "rolePermissions-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"permissionId\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/rolePermissions/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "rolePermissions-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"roleId\": \"\",\n\t\t\t\"permissionId\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/rolePermissions/create"
+					},
+					"response": []
+				},
+				{
+					"name": "rolePermissions-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"permissionId\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/rolePermissions/update"
+					},
+					"response": []
+				},
+				{
+					"name": "rolePermissions-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/rolePermissions/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "roles",
+			"item": [
+				{
+					"name": "roles-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"name\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/roles/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "roles-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"name\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/roles/create"
+					},
+					"response": []
+				},
+				{
+					"name": "roles-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/roles/update"
+					},
+					"response": []
+				},
+				{
+					"name": "roles-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/roles/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "routes",
+			"item": [
+				{
+					"name": "routes-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"originCityId\": \"\",\n\t\t\"destinationCityId\": \"\",\n\t\t\"duration\": \"\",\n\t\t\"price\": \"\",\n\t\t\"status\": \"\",\n\t\t\"rating\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/routes/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "routes-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"originCityId\": \"\",\n\t\t\t\"destinationCityId\": \"\",\n\t\t\t\"duration\": \"\",\n\t\t\t\"price\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"rating\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/routes/create"
+					},
+					"response": []
+				},
+				{
+					"name": "routes-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"originCityId\": \"\",\n\t\t\t\"destinationCityId\": \"\",\n\t\t\t\"duration\": \"\",\n\t\t\t\"price\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"rating\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/routes/update"
+					},
+					"response": []
+				},
+				{
+					"name": "routes-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/routes/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stations",
+			"item": [
+				{
+					"name": "stations-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"name\": \"\",\n\t\t\"address\": \"\",\n\t\t\"cityId\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"isAvailable\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/stations/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "stations-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"name\": \"\",\n\t\t\t\"address\": \"\",\n\t\t\t\"cityId\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"isAvailable\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/stations/create"
+					},
+					"response": []
+				},
+				{
+					"name": "stations-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"address\": \"\",\n\t\t\t\"cityId\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"isAvailable\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/stations/update"
+					},
+					"response": []
+				},
+				{
+					"name": "stations-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/stations/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tickets",
+			"item": [
+				{
+					"name": "tickets-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"bookingId\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"qrCode\": \"\",\n\t\t\"status\": \"\",\n\t\t\"scannedBy\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/tickets/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "tickets-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"bookingId\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"qrCode\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"scannedBy\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/tickets/create"
+					},
+					"response": []
+				},
+				{
+					"name": "tickets-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"bookingId\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"qrCode\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"scannedBy\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/tickets/update"
+					},
+					"response": []
+				},
+				{
+					"name": "tickets-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/tickets/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "travelSchedules",
+			"item": [
+				{
+					"name": "travelSchedules-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"routeId\": \"\",\n\t\t\"departureStation\": \"\",\n\t\t\"arrivalStation\": \"\",\n\t\t\"departureTime\": \"\",\n\t\t\"arrivalTime\": \"\",\n\t\t\"travelDate\": \"\",\n\t\t\"price\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/travelSchedules/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "travelSchedules-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"departureStation\": \"\",\n\t\t\t\"arrivalStation\": \"\",\n\t\t\t\"departureTime\": \"\",\n\t\t\t\"arrivalTime\": \"\",\n\t\t\t\"travelDate\": \"\",\n\t\t\t\"price\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/travelSchedules/create"
+					},
+					"response": []
+				},
+				{
+					"name": "travelSchedules-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"departureStation\": \"\",\n\t\t\t\"arrivalStation\": \"\",\n\t\t\t\"departureTime\": \"\",\n\t\t\t\"arrivalTime\": \"\",\n\t\t\t\"travelDate\": \"\",\n\t\t\t\"price\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/travelSchedules/update"
+					},
+					"response": []
+				},
+				{
+					"name": "travelSchedules-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/travelSchedules/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tripTracking",
+			"item": [
+				{
+					"name": "tripTracking-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"routeId\": \"\",\n\t\t\"location\": \"\",\n\t\t\"timestamp\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/tripTracking/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "tripTracking-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"location\": \"\",\n\t\t\t\"timestamp\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/tripTracking/create"
+					},
+					"response": []
+				},
+				{
+					"name": "tripTracking-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"routeId\": \"\",\n\t\t\t\"location\": \"\",\n\t\t\t\"timestamp\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/tripTracking/update"
+					},
+					"response": []
+				},
+				{
+					"name": "tripTracking-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/tripTracking/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"bornOn\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\"email\": \"\",\n\t\t\"firstConnection\": \"\",\n\t\t\"firstName\": \"\",\n\t\t\"fonction\": \"\",\n\t\t\"isActive\": \"\",\n\t\t\"isConnected\": \"\",\n\t\t\"isDefaultPassword\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"isLdapUser\": \"\",\n\t\t\"isLocked\": \"\",\n\t\t\"isValidPassCode\": \"\",\n\t\t\"isValidToken\": \"\",\n\t\t\"lastActivityDate\": \"\",\n\t\t\"lastConnectionDate\": \"\",\n\t\t\"lastLockDate\": \"\",\n\t\t\"lastName\": \"\",\n\t\t\"lieuFonction\": \"\",\n\t\t\"login\": \"\",\n\t\t\"loginAttempts\": \"\",\n\t\t\"otpCode\": \"\",\n\t\t\"passCode\": \"\",\n\t\t\"passCodeCreatedAt\": \"\",\n\t\t\"passCodeExpireAt\": \"\",\n\t\t\"password\": \"\",\n\t\t\"searchString\": \"\",\n\t\t\"telephone\": \"\",\n\t\t\"token\": \"\",\n\t\t\"tokenCreatedAt\": \"\",\n\t\t\"tokenExpireAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"roleId\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/user/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "user-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"bornOn\": \"\",\n\t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"firstName\": \"\",\n\t\t\t\"fonction\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLdapUser\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"lastName\": \"\",\n\t\t\t\"lieuFonction\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/user/create"
+					},
+					"response": []
+				},
+				{
+					"name": "user-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"bornOn\": \"\",\n\t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"firstName\": \"\",\n\t\t\t\"fonction\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLdapUser\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"lastName\": \"\",\n\t\t\t\"lieuFonction\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/user/update"
+					},
+					"response": []
+				},
+				{
+					"name": "user-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/user/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "userRoles",
+			"item": [
+				{
+					"name": "userRoles-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"userId\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/userRoles/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "userRoles-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"userId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/userRoles/create"
+					},
+					"response": []
+				},
+				{
+					"name": "userRoles-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"userId\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/userRoles/update"
+					},
+					"response": []
+				},
+				{
+					"name": "userRoles-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/userRoles/delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "users-getByCriteria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"companyId\": \"\",\n\t\t\"name\": \"\",\n\t\t\"email\": \"\",\n\t\t\"phone\": \"\",\n\t\t\"password\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+						},
+						"url": "{{main_url}}/users/getByCriteria"
+					},
+					"response": []
+				},
+				{
+					"name": "users-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"companyId\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"phone\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/users/create"
+					},
+					"response": []
+				},
+				{
+					"name": "users-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"companyId\": \"\",\n\t\t\t\"name\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"phone\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/users/update"
+					},
+					"response": []
+				},
+				{
+					"name": "users-delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+						},
+						"url": "{{main_url}}/users/delete"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "5e98794e-7ae9-47ed-ac00-de0e48a44e1e",
+		"name": "api e-voyage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37685494"
+	},
+	"item": [
+		{
+			"name": "inscription voyageur",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"datas\": [\n    {\n      \"name\": \"John Doe\",\n      \"phone\": \"2250700000040\",\n      \"password\": \"password123\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://62.72.18.97:8080/evoyage-backend-api/api/auth/register",
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/travellers/register \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"datas\": [\n    {\n      \"name\": \"John Doe\",\n      \"email\": \"johndoe@example.com\",\n      \"phone\": \"2250700000000\",\n      \"password\": \"password123\"\n    }\n  ]\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CONNEXION",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"data\": {\n    \"emailOrPhone\": \"2250700000040\",\n    \"password\": \"password123\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://62.72.18.97:8080/evoyage-backend-api/api/auth/login",
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/auth/login \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"data\": {\n    \"emailOrPhone\": \"user@example.com\",\n    \"password\": \"password123\"\n  }\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "refresh-token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": 5,\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjUsImlhdCI6MTczNzY2MDI3MSwiZXhwIjoxNzQwMjUyMjcxfQ.mybXvhsPzJhs_ztZM5qdaVDTBaF4hpV7yIE-VeH8s_8\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://62.72.18.97:8080/evoyage-backend-api/api/auth/refresh-token",
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/auth/refresh-token \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"userId\": 1,\n  \"refreshToken\": \"refresh_token_value\"\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"2\",\r\n\r\n    \"data\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://62.72.18.97:8080/evoyage-backend-api/api/auth/logout",
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/auth/logout \\\n-H \"Content-Type: application/json\" \\\n-d '1'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/auth/logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"data\": {\n        \"id\": 3\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://62.72.18.97:8080/evoyage-backend-api/api/auth/logOut",
+				"description": "Generated from cURL: curl -X POST \\\n  http://localhost:8080/api/auth/logout \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"user\": \"admin\", \n    \"data\": {\n        \"id\": 1\n    }\n}'\n"
+			},
+			"response": []
+		}
+	]
+}

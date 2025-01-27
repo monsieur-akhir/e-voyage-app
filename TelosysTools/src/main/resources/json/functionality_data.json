@@ -1,0 +1,702 @@
+{
+	"user": 1,
+	"datas": [
+		{
+			"code": "ALERTS",
+			"name": "ALERTS"
+		},
+		{
+			"code": "VIEW_ALERTS",
+			"parentCode": "ALERTS",
+			"name": "VIEW ALERTS"
+		},
+		{
+			"code": "CREATE_ALERTS",
+			"parentCode": "ALERTS",
+			"name": "CREATE ALERTS"
+		},
+		{
+			"code": "UPDATE_ALERTS",
+			"parentCode": "ALERTS",
+			"name": "UPDATE ALERTS"
+		},
+		{
+			"code": "DELETE_ALERTS",
+			"parentCode": "ALERTS",
+			"name": "DELETE ALERTS"
+		},
+		{
+			"code": "API_LOGS",
+			"name": "API_LOGS"
+		},
+		{
+			"code": "VIEW_API_LOGS",
+			"parentCode": "API_LOGS",
+			"name": "VIEW API_LOGS"
+		},
+		{
+			"code": "CREATE_API_LOGS",
+			"parentCode": "API_LOGS",
+			"name": "CREATE API_LOGS"
+		},
+		{
+			"code": "UPDATE_API_LOGS",
+			"parentCode": "API_LOGS",
+			"name": "UPDATE API_LOGS"
+		},
+		{
+			"code": "DELETE_API_LOGS",
+			"parentCode": "API_LOGS",
+			"name": "DELETE API_LOGS"
+		},
+		{
+			"code": "API_USER",
+			"name": "API_USER"
+		},
+		{
+			"code": "VIEW_API_USER",
+			"parentCode": "API_USER",
+			"name": "VIEW API_USER"
+		},
+		{
+			"code": "CREATE_API_USER",
+			"parentCode": "API_USER",
+			"name": "CREATE API_USER"
+		},
+		{
+			"code": "UPDATE_API_USER",
+			"parentCode": "API_USER",
+			"name": "UPDATE API_USER"
+		},
+		{
+			"code": "DELETE_API_USER",
+			"parentCode": "API_USER",
+			"name": "DELETE API_USER"
+		},
+		{
+			"code": "BOOKINGS",
+			"name": "BOOKINGS"
+		},
+		{
+			"code": "VIEW_BOOKINGS",
+			"parentCode": "BOOKINGS",
+			"name": "VIEW BOOKINGS"
+		},
+		{
+			"code": "CREATE_BOOKINGS",
+			"parentCode": "BOOKINGS",
+			"name": "CREATE BOOKINGS"
+		},
+		{
+			"code": "UPDATE_BOOKINGS",
+			"parentCode": "BOOKINGS",
+			"name": "UPDATE BOOKINGS"
+		},
+		{
+			"code": "DELETE_BOOKINGS",
+			"parentCode": "BOOKINGS",
+			"name": "DELETE BOOKINGS"
+		},
+		{
+			"code": "BUSES",
+			"name": "BUSES"
+		},
+		{
+			"code": "VIEW_BUSES",
+			"parentCode": "BUSES",
+			"name": "VIEW BUSES"
+		},
+		{
+			"code": "CREATE_BUSES",
+			"parentCode": "BUSES",
+			"name": "CREATE BUSES"
+		},
+		{
+			"code": "UPDATE_BUSES",
+			"parentCode": "BUSES",
+			"name": "UPDATE BUSES"
+		},
+		{
+			"code": "DELETE_BUSES",
+			"parentCode": "BUSES",
+			"name": "DELETE BUSES"
+		},
+		{
+			"code": "CITIES",
+			"name": "CITIES"
+		},
+		{
+			"code": "VIEW_CITIES",
+			"parentCode": "CITIES",
+			"name": "VIEW CITIES"
+		},
+		{
+			"code": "CREATE_CITIES",
+			"parentCode": "CITIES",
+			"name": "CREATE CITIES"
+		},
+		{
+			"code": "UPDATE_CITIES",
+			"parentCode": "CITIES",
+			"name": "UPDATE CITIES"
+		},
+		{
+			"code": "DELETE_CITIES",
+			"parentCode": "CITIES",
+			"name": "DELETE CITIES"
+		},
+		{
+			"code": "COMPANIES",
+			"name": "COMPANIES"
+		},
+		{
+			"code": "VIEW_COMPANIES",
+			"parentCode": "COMPANIES",
+			"name": "VIEW COMPANIES"
+		},
+		{
+			"code": "CREATE_COMPANIES",
+			"parentCode": "COMPANIES",
+			"name": "CREATE COMPANIES"
+		},
+		{
+			"code": "UPDATE_COMPANIES",
+			"parentCode": "COMPANIES",
+			"name": "UPDATE COMPANIES"
+		},
+		{
+			"code": "DELETE_COMPANIES",
+			"parentCode": "COMPANIES",
+			"name": "DELETE COMPANIES"
+		},
+		{
+			"code": "DEPARTS",
+			"name": "DEPARTS"
+		},
+		{
+			"code": "VIEW_DEPARTS",
+			"parentCode": "DEPARTS",
+			"name": "VIEW DEPARTS"
+		},
+		{
+			"code": "CREATE_DEPARTS",
+			"parentCode": "DEPARTS",
+			"name": "CREATE DEPARTS"
+		},
+		{
+			"code": "UPDATE_DEPARTS",
+			"parentCode": "DEPARTS",
+			"name": "UPDATE DEPARTS"
+		},
+		{
+			"code": "DELETE_DEPARTS",
+			"parentCode": "DEPARTS",
+			"name": "DELETE DEPARTS"
+		},
+		{
+			"code": "DISTRICTS",
+			"name": "DISTRICTS"
+		},
+		{
+			"code": "VIEW_DISTRICTS",
+			"parentCode": "DISTRICTS",
+			"name": "VIEW DISTRICTS"
+		},
+		{
+			"code": "CREATE_DISTRICTS",
+			"parentCode": "DISTRICTS",
+			"name": "CREATE DISTRICTS"
+		},
+		{
+			"code": "UPDATE_DISTRICTS",
+			"parentCode": "DISTRICTS",
+			"name": "UPDATE DISTRICTS"
+		},
+		{
+			"code": "DELETE_DISTRICTS",
+			"parentCode": "DISTRICTS",
+			"name": "DELETE DISTRICTS"
+		},
+		{
+			"code": "FINANCIAL_REPORTS",
+			"name": "FINANCIAL_REPORTS"
+		},
+		{
+			"code": "VIEW_FINANCIAL_REPORTS",
+			"parentCode": "FINANCIAL_REPORTS",
+			"name": "VIEW FINANCIAL_REPORTS"
+		},
+		{
+			"code": "CREATE_FINANCIAL_REPORTS",
+			"parentCode": "FINANCIAL_REPORTS",
+			"name": "CREATE FINANCIAL_REPORTS"
+		},
+		{
+			"code": "UPDATE_FINANCIAL_REPORTS",
+			"parentCode": "FINANCIAL_REPORTS",
+			"name": "UPDATE FINANCIAL_REPORTS"
+		},
+		{
+			"code": "DELETE_FINANCIAL_REPORTS",
+			"parentCode": "FINANCIAL_REPORTS",
+			"name": "DELETE FINANCIAL_REPORTS"
+		},
+		{
+			"code": "FONCTIONALITE",
+			"name": "FONCTIONALITE"
+		},
+		{
+			"code": "VIEW_FONCTIONALITE",
+			"parentCode": "FONCTIONALITE",
+			"name": "VIEW FONCTIONALITE"
+		},
+		{
+			"code": "CREATE_FONCTIONALITE",
+			"parentCode": "FONCTIONALITE",
+			"name": "CREATE FONCTIONALITE"
+		},
+		{
+			"code": "UPDATE_FONCTIONALITE",
+			"parentCode": "FONCTIONALITE",
+			"name": "UPDATE FONCTIONALITE"
+		},
+		{
+			"code": "DELETE_FONCTIONALITE",
+			"parentCode": "FONCTIONALITE",
+			"name": "DELETE FONCTIONALITE"
+		},
+		{
+			"code": "LOGS",
+			"name": "LOGS"
+		},
+		{
+			"code": "VIEW_LOGS",
+			"parentCode": "LOGS",
+			"name": "VIEW LOGS"
+		},
+		{
+			"code": "CREATE_LOGS",
+			"parentCode": "LOGS",
+			"name": "CREATE LOGS"
+		},
+		{
+			"code": "UPDATE_LOGS",
+			"parentCode": "LOGS",
+			"name": "UPDATE LOGS"
+		},
+		{
+			"code": "DELETE_LOGS",
+			"parentCode": "LOGS",
+			"name": "DELETE LOGS"
+		},
+		{
+			"code": "NOTIFICATIONS",
+			"name": "NOTIFICATIONS"
+		},
+		{
+			"code": "VIEW_NOTIFICATIONS",
+			"parentCode": "NOTIFICATIONS",
+			"name": "VIEW NOTIFICATIONS"
+		},
+		{
+			"code": "CREATE_NOTIFICATIONS",
+			"parentCode": "NOTIFICATIONS",
+			"name": "CREATE NOTIFICATIONS"
+		},
+		{
+			"code": "UPDATE_NOTIFICATIONS",
+			"parentCode": "NOTIFICATIONS",
+			"name": "UPDATE NOTIFICATIONS"
+		},
+		{
+			"code": "DELETE_NOTIFICATIONS",
+			"parentCode": "NOTIFICATIONS",
+			"name": "DELETE NOTIFICATIONS"
+		},
+		{
+			"code": "PARAM_NOTIFICATION",
+			"name": "PARAM_NOTIFICATION"
+		},
+		{
+			"code": "VIEW_PARAM_NOTIFICATION",
+			"parentCode": "PARAM_NOTIFICATION",
+			"name": "VIEW PARAM_NOTIFICATION"
+		},
+		{
+			"code": "CREATE_PARAM_NOTIFICATION",
+			"parentCode": "PARAM_NOTIFICATION",
+			"name": "CREATE PARAM_NOTIFICATION"
+		},
+		{
+			"code": "UPDATE_PARAM_NOTIFICATION",
+			"parentCode": "PARAM_NOTIFICATION",
+			"name": "UPDATE PARAM_NOTIFICATION"
+		},
+		{
+			"code": "DELETE_PARAM_NOTIFICATION",
+			"parentCode": "PARAM_NOTIFICATION",
+			"name": "DELETE PARAM_NOTIFICATION"
+		},
+		{
+			"code": "PARAMETRE_GENERAUX",
+			"name": "PARAMETRE_GENERAUX"
+		},
+		{
+			"code": "VIEW_PARAMETRE_GENERAUX",
+			"parentCode": "PARAMETRE_GENERAUX",
+			"name": "VIEW PARAMETRE_GENERAUX"
+		},
+		{
+			"code": "CREATE_PARAMETRE_GENERAUX",
+			"parentCode": "PARAMETRE_GENERAUX",
+			"name": "CREATE PARAMETRE_GENERAUX"
+		},
+		{
+			"code": "UPDATE_PARAMETRE_GENERAUX",
+			"parentCode": "PARAMETRE_GENERAUX",
+			"name": "UPDATE PARAMETRE_GENERAUX"
+		},
+		{
+			"code": "DELETE_PARAMETRE_GENERAUX",
+			"parentCode": "PARAMETRE_GENERAUX",
+			"name": "DELETE PARAMETRE_GENERAUX"
+		},
+		{
+			"code": "PAYMENTS",
+			"name": "PAYMENTS"
+		},
+		{
+			"code": "VIEW_PAYMENTS",
+			"parentCode": "PAYMENTS",
+			"name": "VIEW PAYMENTS"
+		},
+		{
+			"code": "CREATE_PAYMENTS",
+			"parentCode": "PAYMENTS",
+			"name": "CREATE PAYMENTS"
+		},
+		{
+			"code": "UPDATE_PAYMENTS",
+			"parentCode": "PAYMENTS",
+			"name": "UPDATE PAYMENTS"
+		},
+		{
+			"code": "DELETE_PAYMENTS",
+			"parentCode": "PAYMENTS",
+			"name": "DELETE PAYMENTS"
+		},
+		{
+			"code": "PERMISSIONS",
+			"name": "PERMISSIONS"
+		},
+		{
+			"code": "VIEW_PERMISSIONS",
+			"parentCode": "PERMISSIONS",
+			"name": "VIEW PERMISSIONS"
+		},
+		{
+			"code": "CREATE_PERMISSIONS",
+			"parentCode": "PERMISSIONS",
+			"name": "CREATE PERMISSIONS"
+		},
+		{
+			"code": "UPDATE_PERMISSIONS",
+			"parentCode": "PERMISSIONS",
+			"name": "UPDATE PERMISSIONS"
+		},
+		{
+			"code": "DELETE_PERMISSIONS",
+			"parentCode": "PERMISSIONS",
+			"name": "DELETE PERMISSIONS"
+		},
+		{
+			"code": "ROLE",
+			"name": "ROLE"
+		},
+		{
+			"code": "VIEW_ROLE",
+			"parentCode": "ROLE",
+			"name": "VIEW ROLE"
+		},
+		{
+			"code": "CREATE_ROLE",
+			"parentCode": "ROLE",
+			"name": "CREATE ROLE"
+		},
+		{
+			"code": "UPDATE_ROLE",
+			"parentCode": "ROLE",
+			"name": "UPDATE ROLE"
+		},
+		{
+			"code": "DELETE_ROLE",
+			"parentCode": "ROLE",
+			"name": "DELETE ROLE"
+		},
+		{
+			"code": "ROLE_FONCTIONALITE",
+			"name": "ROLE_FONCTIONALITE"
+		},
+		{
+			"code": "VIEW_ROLE_FONCTIONALITE",
+			"parentCode": "ROLE_FONCTIONALITE",
+			"name": "VIEW ROLE_FONCTIONALITE"
+		},
+		{
+			"code": "CREATE_ROLE_FONCTIONALITE",
+			"parentCode": "ROLE_FONCTIONALITE",
+			"name": "CREATE ROLE_FONCTIONALITE"
+		},
+		{
+			"code": "UPDATE_ROLE_FONCTIONALITE",
+			"parentCode": "ROLE_FONCTIONALITE",
+			"name": "UPDATE ROLE_FONCTIONALITE"
+		},
+		{
+			"code": "DELETE_ROLE_FONCTIONALITE",
+			"parentCode": "ROLE_FONCTIONALITE",
+			"name": "DELETE ROLE_FONCTIONALITE"
+		},
+		{
+			"code": "ROLE_PERMISSIONS",
+			"name": "ROLE_PERMISSIONS"
+		},
+		{
+			"code": "VIEW_ROLE_PERMISSIONS",
+			"parentCode": "ROLE_PERMISSIONS",
+			"name": "VIEW ROLE_PERMISSIONS"
+		},
+		{
+			"code": "CREATE_ROLE_PERMISSIONS",
+			"parentCode": "ROLE_PERMISSIONS",
+			"name": "CREATE ROLE_PERMISSIONS"
+		},
+		{
+			"code": "UPDATE_ROLE_PERMISSIONS",
+			"parentCode": "ROLE_PERMISSIONS",
+			"name": "UPDATE ROLE_PERMISSIONS"
+		},
+		{
+			"code": "DELETE_ROLE_PERMISSIONS",
+			"parentCode": "ROLE_PERMISSIONS",
+			"name": "DELETE ROLE_PERMISSIONS"
+		},
+		{
+			"code": "ROLES",
+			"name": "ROLES"
+		},
+		{
+			"code": "VIEW_ROLES",
+			"parentCode": "ROLES",
+			"name": "VIEW ROLES"
+		},
+		{
+			"code": "CREATE_ROLES",
+			"parentCode": "ROLES",
+			"name": "CREATE ROLES"
+		},
+		{
+			"code": "UPDATE_ROLES",
+			"parentCode": "ROLES",
+			"name": "UPDATE ROLES"
+		},
+		{
+			"code": "DELETE_ROLES",
+			"parentCode": "ROLES",
+			"name": "DELETE ROLES"
+		},
+		{
+			"code": "ROUTES",
+			"name": "ROUTES"
+		},
+		{
+			"code": "VIEW_ROUTES",
+			"parentCode": "ROUTES",
+			"name": "VIEW ROUTES"
+		},
+		{
+			"code": "CREATE_ROUTES",
+			"parentCode": "ROUTES",
+			"name": "CREATE ROUTES"
+		},
+		{
+			"code": "UPDATE_ROUTES",
+			"parentCode": "ROUTES",
+			"name": "UPDATE ROUTES"
+		},
+		{
+			"code": "DELETE_ROUTES",
+			"parentCode": "ROUTES",
+			"name": "DELETE ROUTES"
+		},
+		{
+			"code": "STATIONS",
+			"name": "STATIONS"
+		},
+		{
+			"code": "VIEW_STATIONS",
+			"parentCode": "STATIONS",
+			"name": "VIEW STATIONS"
+		},
+		{
+			"code": "CREATE_STATIONS",
+			"parentCode": "STATIONS",
+			"name": "CREATE STATIONS"
+		},
+		{
+			"code": "UPDATE_STATIONS",
+			"parentCode": "STATIONS",
+			"name": "UPDATE STATIONS"
+		},
+		{
+			"code": "DELETE_STATIONS",
+			"parentCode": "STATIONS",
+			"name": "DELETE STATIONS"
+		},
+		{
+			"code": "TICKETS",
+			"name": "TICKETS"
+		},
+		{
+			"code": "VIEW_TICKETS",
+			"parentCode": "TICKETS",
+			"name": "VIEW TICKETS"
+		},
+		{
+			"code": "CREATE_TICKETS",
+			"parentCode": "TICKETS",
+			"name": "CREATE TICKETS"
+		},
+		{
+			"code": "UPDATE_TICKETS",
+			"parentCode": "TICKETS",
+			"name": "UPDATE TICKETS"
+		},
+		{
+			"code": "DELETE_TICKETS",
+			"parentCode": "TICKETS",
+			"name": "DELETE TICKETS"
+		},
+		{
+			"code": "TRAVEL_SCHEDULES",
+			"name": "TRAVEL_SCHEDULES"
+		},
+		{
+			"code": "VIEW_TRAVEL_SCHEDULES",
+			"parentCode": "TRAVEL_SCHEDULES",
+			"name": "VIEW TRAVEL_SCHEDULES"
+		},
+		{
+			"code": "CREATE_TRAVEL_SCHEDULES",
+			"parentCode": "TRAVEL_SCHEDULES",
+			"name": "CREATE TRAVEL_SCHEDULES"
+		},
+		{
+			"code": "UPDATE_TRAVEL_SCHEDULES",
+			"parentCode": "TRAVEL_SCHEDULES",
+			"name": "UPDATE TRAVEL_SCHEDULES"
+		},
+		{
+			"code": "DELETE_TRAVEL_SCHEDULES",
+			"parentCode": "TRAVEL_SCHEDULES",
+			"name": "DELETE TRAVEL_SCHEDULES"
+		},
+		{
+			"code": "TRIP_TRACKING",
+			"name": "TRIP_TRACKING"
+		},
+		{
+			"code": "VIEW_TRIP_TRACKING",
+			"parentCode": "TRIP_TRACKING",
+			"name": "VIEW TRIP_TRACKING"
+		},
+		{
+			"code": "CREATE_TRIP_TRACKING",
+			"parentCode": "TRIP_TRACKING",
+			"name": "CREATE TRIP_TRACKING"
+		},
+		{
+			"code": "UPDATE_TRIP_TRACKING",
+			"parentCode": "TRIP_TRACKING",
+			"name": "UPDATE TRIP_TRACKING"
+		},
+		{
+			"code": "DELETE_TRIP_TRACKING",
+			"parentCode": "TRIP_TRACKING",
+			"name": "DELETE TRIP_TRACKING"
+		},
+		{
+			"code": "USER",
+			"name": "USER"
+		},
+		{
+			"code": "VIEW_USER",
+			"parentCode": "USER",
+			"name": "VIEW USER"
+		},
+		{
+			"code": "CREATE_USER",
+			"parentCode": "USER",
+			"name": "CREATE USER"
+		},
+		{
+			"code": "UPDATE_USER",
+			"parentCode": "USER",
+			"name": "UPDATE USER"
+		},
+		{
+			"code": "DELETE_USER",
+			"parentCode": "USER",
+			"name": "DELETE USER"
+		},
+		{
+			"code": "USER_ROLES",
+			"name": "USER_ROLES"
+		},
+		{
+			"code": "VIEW_USER_ROLES",
+			"parentCode": "USER_ROLES",
+			"name": "VIEW USER_ROLES"
+		},
+		{
+			"code": "CREATE_USER_ROLES",
+			"parentCode": "USER_ROLES",
+			"name": "CREATE USER_ROLES"
+		},
+		{
+			"code": "UPDATE_USER_ROLES",
+			"parentCode": "USER_ROLES",
+			"name": "UPDATE USER_ROLES"
+		},
+		{
+			"code": "DELETE_USER_ROLES",
+			"parentCode": "USER_ROLES",
+			"name": "DELETE USER_ROLES"
+		},
+		{
+			"code": "USERS",
+			"name": "USERS"
+		},
+		{
+			"code": "VIEW_USERS",
+			"parentCode": "USERS",
+			"name": "VIEW USERS"
+		},
+		{
+			"code": "CREATE_USERS",
+			"parentCode": "USERS",
+			"name": "CREATE USERS"
+		},
+		{
+			"code": "UPDATE_USERS",
+			"parentCode": "USERS",
+			"name": "UPDATE USERS"
+		},
+		{
+			"code": "DELETE_USERS",
+			"parentCode": "USERS",
+			"name": "DELETE USERS"
+		}
+
+	]
+}

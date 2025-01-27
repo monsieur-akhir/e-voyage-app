@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <title>Ticket de Car</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .ticket-container {
+            width: 750px;
+            margin: auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .ticket-header {
+            background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 26px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .ticket-details {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: separate;
+            border-spacing: 15px 10px;
+        }
+
+        .ticket-details td {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .ticket-details strong {
+            display: block;
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .ticket-details span {
+            font-size: 16px;
+            color: #212529;
+            font-weight: bold;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .important-note {
+            background-color: #dc3545;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .ticket-footer {
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .ticket-footer span {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<div class="ticket-container">
+    <div class="ticket-header">
+        Ticket de Car Premium
+    </div>
+
+    <table class="ticket-details">
+        <tr>
+            <td>
+                <strong>Numéro de Ticket</strong>
+                <span th:text="${ticketId}">N/A</span>
+            </td>
+            <td>
+                <strong>Compagnie</strong>
+                <span th:text="${companyName}">N/A</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Ville de Départ</strong>
+                <span th:text="${originCity}">N/A</span>
+            </td>
+            <td>
+                <strong>Ville d'Arrivée</strong>
+                <span th:text="${destinationCity}">N/A</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Date de Départ</strong>
+                <span th:text="${departureDate}">N/A</span>
+            </td>
+            <td>
+                <strong>Heure de Départ</strong>
+                <span th:text="${departureTime}">N/A</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Nombre de Places</strong>
+                <span th:text="${numberOfSeats}">N/A</span>
+            </td>
+            <td>
+                <strong>Prix Total</strong>
+                <span th:text="${totalPrice}">N/A</span> FCFA
+            </td>
+        </tr>
+    </table>
+
+    <div class="qr-code">
+        <img th:src="${qrCodeImage}" alt="QR Code"></img>
+    </div>
+
+    <div class="important-note">
+        Aucun remboursement n'est possible après l'achat ou le départ du bus.
+    </div>
+
+    <div class="ticket-footer">
+        © <span>Compagnie Premium</span> - Votre voyage, notre priorité. | Achat le :
+        <span th:text="${dateAchat}">N/A</span>
+    </div>
+</div>
+</body>
+</html>

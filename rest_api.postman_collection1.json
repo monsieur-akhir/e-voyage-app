@@ -1,0 +1,1598 @@
+
+{
+	"id": "project.id",
+	"name": "tech_synelia_omrdcPaiementSnel",
+	"description": "",
+	"order": [],
+	"timestamp": 1497267117086,
+	"owner": "1151918",
+	"public": false,
+	"folders": [
+		{
+			"id": "apiLogs.id",
+			"name": "apiLogs",
+			"description": "",
+			"order": [
+				"apiLogs.getByCriteria",
+				"apiLogs.create",
+				"apiLogs.update",
+				"apiLogs.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "apiUser.id",
+			"name": "apiUser",
+			"description": "",
+			"order": [
+				"apiUser.getByCriteria",
+				"apiUser.create",
+				"apiUser.update",
+				"apiUser.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "cards.id",
+			"name": "cards",
+			"description": "",
+			"order": [
+				"cards.getByCriteria",
+				"cards.create",
+				"cards.update",
+				"cards.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "customers.id",
+			"name": "customers",
+			"description": "",
+			"order": [
+				"customers.getByCriteria",
+				"customers.create",
+				"customers.update",
+				"customers.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "fonctionalite.id",
+			"name": "fonctionalite",
+			"description": "",
+			"order": [
+				"fonctionalite.getByCriteria",
+				"fonctionalite.create",
+				"fonctionalite.update",
+				"fonctionalite.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "logs.id",
+			"name": "logs",
+			"description": "",
+			"order": [
+				"logs.getByCriteria",
+				"logs.create",
+				"logs.update",
+				"logs.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "paramNotification.id",
+			"name": "paramNotification",
+			"description": "",
+			"order": [
+				"paramNotification.getByCriteria",
+				"paramNotification.create",
+				"paramNotification.update",
+				"paramNotification.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "parametreGeneraux.id",
+			"name": "parametreGeneraux",
+			"description": "",
+			"order": [
+				"parametreGeneraux.getByCriteria",
+				"parametreGeneraux.create",
+				"parametreGeneraux.update",
+				"parametreGeneraux.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "role.id",
+			"name": "role",
+			"description": "",
+			"order": [
+				"role.getByCriteria",
+				"role.create",
+				"role.update",
+				"role.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "roleFonctionalite.id",
+			"name": "roleFonctionalite",
+			"description": "",
+			"order": [
+				"roleFonctionalite.getByCriteria",
+				"roleFonctionalite.create",
+				"roleFonctionalite.update",
+				"roleFonctionalite.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "transactions.id",
+			"name": "transactions",
+			"description": "",
+			"order": [
+				"transactions.getByCriteria",
+				"transactions.create",
+				"transactions.update",
+				"transactions.delete"
+			],
+			"owner": "1151918"
+		},
+		{
+			"id": "user.id",
+			"name": "user",
+			"description": "",
+			"order": [
+				"user.getByCriteria",
+				"user.create",
+				"user.update",
+				"user.delete"
+			],
+			"owner": "1151918"
+		}
+	],
+	"requests": [
+		{
+			"id": "apiLogs.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiLogs/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "apiLogs-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"requestTime\": \"\",\n\t\t\t\"requestUrl\": \"\",\n\t\t\t\"requestMethod\": \"\",\n\t\t\t\"requestHeaders\": \"\",\n\t\t\t\"requestBody\": \"\",\n\t\t\t\"responseTime\": \"\",\n\t\t\t\"responseStatus\": \"\",\n\t\t\t\"responseBody\": \"\",\n\t\t\t\"createdDate\": \"\",\n\t\t\t\"lastModifiedBy\": \"\",\n\t\t\t\"lastModifiedDate\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "apiLogs.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiLogs/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "apiLogs-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"requestTime\": \"\",\n\t\t\t\"requestUrl\": \"\",\n\t\t\t\"requestMethod\": \"\",\n\t\t\t\"requestHeaders\": \"\",\n\t\t\t\"requestBody\": \"\",\n\t\t\t\"responseTime\": \"\",\n\t\t\t\"responseStatus\": \"\",\n\t\t\t\"responseBody\": \"\",\n\t\t\t\"createdDate\": \"\",\n\t\t\t\"lastModifiedBy\": \"\",\n\t\t\t\"lastModifiedDate\": \"\",\n\t\t\t\"status\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "apiLogs.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiLogs/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "apiLogs-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "apiLogs.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiLogs/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "apiLogs-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"requestTime\": \"\",\n\t\t\"requestUrl\": \"\",\n\t\t\"requestMethod\": \"\",\n\t\t\"requestHeaders\": \"\",\n\t\t\"requestBody\": \"\",\n\t\t\"responseTime\": \"\",\n\t\t\"responseStatus\": \"\",\n\t\t\"responseBody\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"createdDate\": \"\",\n\t\t\"lastModifiedBy\": \"\",\n\t\t\"lastModifiedDate\": \"\",\n\t\t\"status\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "apiUser.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiUser/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "apiUser-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "apiUser.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiUser/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "apiUser-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"roleId\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "apiUser.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiUser/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "apiUser-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "apiUser.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/apiUser/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "apiUser-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\"email\": \"\",\n\t\t\"firstConnection\": \"\",\n\t\t\"isActive\": \"\",\n\t\t\"isConnected\": \"\",\n\t\t\"isDefaultPassword\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"isLocked\": \"\",\n\t\t\"isValidPassCode\": \"\",\n\t\t\"isValidToken\": \"\",\n\t\t\"lastActivityDate\": \"\",\n\t\t\"lastConnectionDate\": \"\",\n\t\t\"lastLockDate\": \"\",\n\t\t\"login\": \"\",\n\t\t\"loginAttempts\": \"\",\n\t\t\"otpCode\": \"\",\n\t\t\"passCode\": \"\",\n\t\t\"passCodeCreatedAt\": \"\",\n\t\t\"passCodeExpireAt\": \"\",\n\t\t\"password\": \"\",\n\t\t\"searchString\": \"\",\n\t\t\"telephone\": \"\",\n\t\t\"token\": \"\",\n\t\t\"tokenCreatedAt\": \"\",\n\t\t\"tokenExpireAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"roleId\": \"\",\n\t\t\"type\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "cards.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/cards/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "cards-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"customerId\": \"\",\n\t\t\t\"cardNumber\": \"\",\n\t\t\t\"longCode\": \"\",\n\t\t\t\"currency\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "cards.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/cards/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "cards-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"cardId\": \"\",\n\t\t\t\"customerId\": \"\",\n\t\t\t\"cardNumber\": \"\",\n\t\t\t\"longCode\": \"\",\n\t\t\t\"currency\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "cards.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/cards/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "cards-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"cardId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "cards.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/cards/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "cards-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"cardId\": \"\",\n\t\t\"customerId\": \"\",\n\t\t\"cardNumber\": \"\",\n\t\t\"longCode\": \"\",\n\t\t\"currency\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "customers.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/customers/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "customers-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"firstName\": \"\",\n\t\t\t\"lastName\": \"\",\n\t\t\t\"middleName\": \"\",\n\t\t\t\"msisdn\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "customers.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/customers/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "customers-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"customerId\": \"\",\n\t\t\t\"firstName\": \"\",\n\t\t\t\"lastName\": \"\",\n\t\t\t\"middleName\": \"\",\n\t\t\t\"msisdn\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "customers.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/customers/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "customers-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"customerId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "customers.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/customers/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "customers-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"customerId\": \"\",\n\t\t\"firstName\": \"\",\n\t\t\"lastName\": \"\",\n\t\t\"middleName\": \"\",\n\t\t\"msisdn\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "fonctionalite.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/fonctionalite/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "fonctionalite-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"code\": \"\",\n\t\t\t\"isAvailableForUser\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"parentId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "fonctionalite.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/fonctionalite/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "fonctionalite-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"code\": \"\",\n\t\t\t\"isAvailableForUser\": \"\",\n\t\t\t\"libelle\": \"\",\n\t\t\t\"parentId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "fonctionalite.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/fonctionalite/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "fonctionalite-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "fonctionalite.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/fonctionalite/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "fonctionalite-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"code\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isAvailableForUser\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"parentId\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "logs.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/logs/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "logs-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"actionService\": \"\",\n\t\t\t\"date\": \"\",\n\t\t\t\"idStatus\": \"\",\n\t\t\t\"ipadress\": \"\",\n\t\t\t\"isConnexion\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"machine\": \"\",\n\t\t\t\"nom\": \"\",\n\t\t\t\"prenom\": \"\",\n\t\t\t\"request\": \"\",\n\t\t\t\"response\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"statusConnection\": \"\",\n\t\t\t\"uri\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "logs.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/logs/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "logs-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"actionService\": \"\",\n\t\t\t\"date\": \"\",\n\t\t\t\"idStatus\": \"\",\n\t\t\t\"ipadress\": \"\",\n\t\t\t\"isConnexion\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"machine\": \"\",\n\t\t\t\"nom\": \"\",\n\t\t\t\"prenom\": \"\",\n\t\t\t\"request\": \"\",\n\t\t\t\"response\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"statusConnection\": \"\",\n\t\t\t\"uri\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "logs.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/logs/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "logs-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "logs.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/logs/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "logs-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"actionService\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"date\": \"\",\n\t\t\"idStatus\": \"\",\n\t\t\"ipadress\": \"\",\n\t\t\"isConnexion\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"login\": \"\",\n\t\t\"machine\": \"\",\n\t\t\"nom\": \"\",\n\t\t\"prenom\": \"\",\n\t\t\"request\": \"\",\n\t\t\"response\": \"\",\n\t\t\"searchString\": \"\",\n\t\t\"statusConnection\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"uri\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "paramNotification.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/paramNotification/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "paramNotification-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"lang\": \"\",\n\t\t\t\"message\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "paramNotification.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/paramNotification/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "paramNotification-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"lang\": \"\",\n\t\t\t\"message\": \"\",\n\t\t\t\"type\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "paramNotification.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/paramNotification/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "paramNotification-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "paramNotification.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/paramNotification/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "paramNotification-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"lang\": \"\",\n\t\t\"message\": \"\",\n\t\t\"type\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "parametreGeneraux.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/parametreGeneraux/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "parametreGeneraux-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\",\n\t\t\t\"paramName\": \"\",\n\t\t\t\"paramValue\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "parametreGeneraux.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/parametreGeneraux/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "parametreGeneraux-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\",\n\t\t\t\"paramName\": \"\",\n\t\t\t\"paramValue\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "parametreGeneraux.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/parametreGeneraux/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "parametreGeneraux-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "parametreGeneraux.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/parametreGeneraux/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "parametreGeneraux-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"paramName\": \"\",\n\t\t\"paramValue\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "role.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/role/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "role-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"libelle\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "role.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/role/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "role-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"libelle\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "role.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/role/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "role-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "role.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/role/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "role-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"libelle\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "roleFonctionalite.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/roleFonctionalite/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "roleFonctionalite-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"fonctionnaliteId\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "roleFonctionalite.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/roleFonctionalite/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "roleFonctionalite-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"fonctionnaliteId\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "roleFonctionalite.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/roleFonctionalite/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "roleFonctionalite-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "roleFonctionalite.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/roleFonctionalite/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "roleFonctionalite-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"fonctionnaliteId\": \"\",\n\t\t\"roleId\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "transactions.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/transactions/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "transactions-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"customerId\": \"\",\n\t\t\t\"cardId\": \"\",\n\t\t\t\"type\": \"\",\n\t\t\t\"amount\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "transactions.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/transactions/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "transactions-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"transactionId\": \"\",\n\t\t\t\"customerId\": \"\",\n\t\t\t\"cardId\": \"\",\n\t\t\t\"type\": \"\",\n\t\t\t\"amount\": \"\",\n\t\t\t\"status\": \"\",\n\t\t\t\"deletedAt\": \"\",\n\t\t\t\"deletedBy\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "transactions.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/transactions/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "transactions-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"transactionId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "transactions.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/transactions/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "transactions-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"transactionId\": \"\",\n\t\t\"customerId\": \"\",\n\t\t\"cardId\": \"\",\n\t\t\"type\": \"\",\n\t\t\"amount\": \"\",\n\t\t\"status\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"deletedAt\": \"\",\n\t\t\"deletedBy\": \"\"\n\t}  \n}"
+		},
+		{
+			"id": "user.create",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/user/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "user-create",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"bornOn\": \"\",\n\t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"firstName\": \"\",\n\t\t\t\"fonction\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLdapUser\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"lastName\": \"\",\n\t\t\t\"lieuFonction\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "user.update",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/user/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "user-update",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\",\n\t\t\t\"bornOn\": \"\",\n\t\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\t\"email\": \"\",\n\t\t\t\"firstConnection\": \"\",\n\t\t\t\"firstName\": \"\",\n\t\t\t\"fonction\": \"\",\n\t\t\t\"isActive\": \"\",\n\t\t\t\"isConnected\": \"\",\n\t\t\t\"isDefaultPassword\": \"\",\n\t\t\t\"isLdapUser\": \"\",\n\t\t\t\"isLocked\": \"\",\n\t\t\t\"isValidPassCode\": \"\",\n\t\t\t\"isValidToken\": \"\",\n\t\t\t\"lastActivityDate\": \"\",\n\t\t\t\"lastConnectionDate\": \"\",\n\t\t\t\"lastLockDate\": \"\",\n\t\t\t\"lastName\": \"\",\n\t\t\t\"lieuFonction\": \"\",\n\t\t\t\"login\": \"\",\n\t\t\t\"loginAttempts\": \"\",\n\t\t\t\"otpCode\": \"\",\n\t\t\t\"passCode\": \"\",\n\t\t\t\"passCodeCreatedAt\": \"\",\n\t\t\t\"passCodeExpireAt\": \"\",\n\t\t\t\"password\": \"\",\n\t\t\t\"searchString\": \"\",\n\t\t\t\"telephone\": \"\",\n\t\t\t\"token\": \"\",\n\t\t\t\"tokenCreatedAt\": \"\",\n\t\t\t\"tokenExpireAt\": \"\",\n\t\t\t\"roleId\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "user.delete",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/user/delete",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439012859,
+			"name": "user-delete",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"datas\":[\n\t\t{\n  \t\t\t\"id\": \"\"\n\t\t} \n\t]  \n}"
+		},
+		{
+			"id": "user.getByCriteria",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{main_url}}/user/getByCriteria",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497439015040,
+			"name": "user-getByCriteria",
+			"description": "",
+			"collectionId": "project.id",
+			"responses": [],
+			"rawModeData": "{\n\t\"user\":\"1\",\n\t\"isSimpleLoading\":false,\n\t\"data\":{\n  \t\t\"id\": \"\",\n\t\t\"bornOn\": \"\",\n\t\t\"createdAt\": \"\",\n\t\t\"createdBy\": \"\",\n\t\t\"dateSendCodeOtpAt\": \"\",\n\t\t\"email\": \"\",\n\t\t\"firstConnection\": \"\",\n\t\t\"firstName\": \"\",\n\t\t\"fonction\": \"\",\n\t\t\"isActive\": \"\",\n\t\t\"isConnected\": \"\",\n\t\t\"isDefaultPassword\": \"\",\n\t\t\"isDeleted\": \"\",\n\t\t\"isLdapUser\": \"\",\n\t\t\"isLocked\": \"\",\n\t\t\"isValidPassCode\": \"\",\n\t\t\"isValidToken\": \"\",\n\t\t\"lastActivityDate\": \"\",\n\t\t\"lastConnectionDate\": \"\",\n\t\t\"lastLockDate\": \"\",\n\t\t\"lastName\": \"\",\n\t\t\"lieuFonction\": \"\",\n\t\t\"login\": \"\",\n\t\t\"loginAttempts\": \"\",\n\t\t\"otpCode\": \"\",\n\t\t\"passCode\": \"\",\n\t\t\"passCodeCreatedAt\": \"\",\n\t\t\"passCodeExpireAt\": \"\",\n\t\t\"password\": \"\",\n\t\t\"searchString\": \"\",\n\t\t\"telephone\": \"\",\n\t\t\"token\": \"\",\n\t\t\"tokenCreatedAt\": \"\",\n\t\t\"tokenExpireAt\": \"\",\n\t\t\"updatedAt\": \"\",\n\t\t\"updatedBy\": \"\",\n\t\t\"roleId\": \"\"\n\t}  \n}"
+		}
+	]
+}
