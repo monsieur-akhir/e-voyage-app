@@ -281,10 +281,10 @@ public interface DepartsRepository extends JpaRepository<Departs, Integer>, _Dep
 				listOfQuery.add(CriteriaUtils.generateCriteria("id", dto.getId(), "e.id", "Integer", dto.getIdParam(), param, index, locale));
 			}
 			if (dto.getDepartureDate()!= null) {
-				listOfQuery.add(CriteriaUtils.generateCriteria("departureDate", dto.getDepartureDate(), "e.departureDate", "Date", dto.getDepartureDateParam(), param, index, locale));
+				listOfQuery.add(CriteriaUtils.generateCriteria("departureDate", dto.getDepartureDate(), "e.departureDate", "String", dto.getDepartureDateParam(), param, index, locale));
 			}
 			if (dto.getDepartureTime()!= null) {
-				listOfQuery.add(CriteriaUtils.generateCriteria("departureTime", dto.getDepartureTime(), "e.departureTime", "Date", dto.getDepartureTimeParam(), param, index, locale));
+				listOfQuery.add(CriteriaUtils.generateCriteria("departureTime", dto.getDepartureTime(), "e.departureTime", "String", dto.getDepartureTimeParam(), param, index, locale));
 			}
 			if (dto.getPrice()!= null && dto.getPrice() > 0) {
 				listOfQuery.add(CriteriaUtils.generateCriteria("price", dto.getPrice(), "e.price", "Double", dto.getPriceParam(), param, index, locale));

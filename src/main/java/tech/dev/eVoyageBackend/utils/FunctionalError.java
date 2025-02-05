@@ -341,13 +341,13 @@ public class FunctionalError {
 
 	public Status INVALID_DATA(String message, Locale locale) {
 		status.setCode(StatusCode.FUNC_INVALID_DATA);
-		status.setMessage(messageSource.getMessage("Données invalides", new Object[] {}, locale) + ": " + message);
+		status.setMessage(messageSource.getMessage("StatusMessage.FUNC_INVALID_DATA", new Object[] {}, locale) + ": " + message);
 		return status;
 	}
 
 	public Status SEATS_NOT_AVAILABLE(String message, Locale locale) {
 		status.setCode(StatusCode.FUNC_SEATS_NOT_AVAILABLE);
-		status.setMessage(messageSource.getMessage("Places non disponibles", new Object[] {}, locale) + ": " + message);
+		status.setMessage(messageSource.getMessage("StatusMessage.FUNC_INSUFFICIENT_SEATS", new Object[] {}, locale) + ": " + message);
 		return status;
 	}
 
@@ -368,5 +368,35 @@ public class FunctionalError {
 		status.setMessage(messageSource.getMessage("StatusMessage.FUNC_INSUFFICIENT_SEATS", new Object[] {}, locale) + ": " + message);
 		return status;
 	}
+
+	public Status INVALID_FILE_TYPE (String message, Locale locale) {
+		status.setCode(StatusCode.FUNC_INVALID_FILE_TYPE);
+		status.setMessage(messageSource.getMessage("StatusMessage.FUNC_INVALID_FILE_TYPE", new Object[] {}, locale) + ": " + message);
+		return status;
+	}
+
+
+	public Status FILE_TOO_LARGE (String message, Locale locale) {
+		status.setCode(StatusCode.FILE_TOO_LARGE);
+		status.setMessage(messageSource.getMessage("StatusMessage.FILE_TOO_LARGE", new Object[] {}, locale) + ": " + message);
+		return status;
+	}
+public Status DATA_EXPIRED(String message, Locale locale) {
+		status.setCode(StatusCode.FUNC_DATA_EXPIRED);
+		status.setMessage(messageSource.getMessage("StatusMessage.FUNC_DATA_EXPIRED", new Object[] {}, locale) + ": " + message);
+		return status;
+	}
+
+	public Status QR_CODE_DECODE_FAILED(String message, Locale locale) {
+		status.setCode(StatusCode.FUNC_QR_CODE_DECODE_FAILED);
+		status.setMessage(messageSource.getMessage("StatusMessage.FUNC_QR_CODE_DECODE_FAILED", new Object[] {}, locale) + ": " + message);
+		return status;
+	}
+
+
+
+
+
+
 
 }

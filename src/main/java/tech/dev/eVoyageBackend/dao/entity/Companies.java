@@ -62,6 +62,9 @@ public class Companies implements Serializable, Cloneable {
     @Column(name="status", nullable=false, length=50)
     private String     status       ;
 
+    @Column(name = "logo_path", length = 255)
+    private String logoPath; // Chemin relatif vers le fichier
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="created_at")
     private Date       createdAt    ;

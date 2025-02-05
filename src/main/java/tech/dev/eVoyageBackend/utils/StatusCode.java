@@ -83,5 +83,12 @@ public class StatusCode {
 
 	public static final String FUNC_INSUFFICIENT_SEATS = "962";
 
+	public static final String FUNC_INVALID_FILE_TYPE= "963";
+
+	public static final String FILE_TOO_LARGE= "964";
+	public static final String FUNC_DATA_EXPIRED= "965";
+
+	public static final String FUNC_QR_CODE_DECODE_FAILED= "966";
+
 
 }

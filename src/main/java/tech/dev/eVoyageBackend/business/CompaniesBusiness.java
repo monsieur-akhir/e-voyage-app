@@ -12,9 +12,13 @@ import lombok.extern.java.Log;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.apache.commons.io.FilenameUtils;
 
+import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -71,6 +75,8 @@ public class CompaniesBusiness implements IBasicBusiness<Request<CompaniesDto>, 
 	@Autowired
 	private FunctionalError functionalError;
 	@Autowired
+	private ParamsUtils paramsUtils;
+	@Autowired
 	private TechnicalError technicalError;
 	@Autowired
 	private ExceptionUtils exceptionUtils;
@@ -93,72 +99,140 @@ public class CompaniesBusiness implements IBasicBusiness<Request<CompaniesDto>, 
 	 * 
 	 */
 	@Override
-	public Response<CompaniesDto> create(Request<CompaniesDto> request, Locale locale)  throws ParseException {
+	public Response<CompaniesDto> create(Request<CompaniesDto> request, Locale locale) throws ParseException {
 		log.info("----begin create Companies-----");
 
 		Response<CompaniesDto> response = new Response<CompaniesDto>();
-		List<Companies>        items    = new ArrayList<Companies>();
-			
+		List<Companies> items = new ArrayList<Companies>();
+
+		// Chemin du dossier où les logos seront stockés
+		String logoDirectoryPath = paramsUtils.getTiketsRopository(); // Remplacez par le chemin réel
+		File logoDirectory = new File(logoDirectoryPath);
+
+		// Créer le dossier s'il n'existe pas
+		if (!logoDirectory.exists()) {
+			logoDirectory.mkdirs();
+		}
+
+		// Taille maximale autorisée pour les fichiers (par exemple, 5 Mo)
+		final long MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 Mo
+
 		for (CompaniesDto dto : request.getDatas()) {
-			// Definir les parametres obligatoires
+			// Vérification des champs obligatoires
 			Map<String, Object> fieldsToVerify = new HashMap<String, Object>();
 			fieldsToVerify.put("name", dto.getName());
 			fieldsToVerify.put("address", dto.getAddress());
 			fieldsToVerify.put("contact", dto.getContact());
-//			fieldsToVerify.put("licenseNumber", dto.getLicenseNumber());
-//			fieldsToVerify.put("rating", dto.getRating());
-//			fieldsToVerify.put("status", dto.getStatus());
-//			fieldsToVerify.put("deletedAt", dto.getDeletedAt());
-//			fieldsToVerify.put("deletedBy", dto.getDeletedBy());
+
 			if (!Validate.RequiredValue(fieldsToVerify).isGood()) {
 				response.setStatus(functionalError.FIELD_EMPTY(Validate.getValidate().getField(), locale));
 				response.setHasError(true);
 				return response;
 			}
 
-			// Verify if companies to insert do not exist
-			Companies existingEntity = null;
-			if (existingEntity != null) {
-				response.setStatus(functionalError.DATA_EXIST("companies id -> " + dto.getId(), locale));
-				response.setHasError(true);
-				return response;
-			}
-
-			// verif unique name in db
-			existingEntity = companiesRepository.findByName(dto.getName(), false);
+			// Vérification si l'entreprise existe déjà
+			Companies existingEntity = companiesRepository.findByName(dto.getName(), false);
 			if (existingEntity != null) {
 				response.setStatus(functionalError.DATA_EXIST("companies name -> " + dto.getName(), locale));
 				response.setHasError(true);
 				return response;
 			}
-			// verif unique name in items to save
+
+			// Vérification du nom unique dans les éléments à sauvegarder
 			if (items.stream().anyMatch(a -> a.getName().equalsIgnoreCase(dto.getName()))) {
 				response.setStatus(functionalError.DATA_DUPLICATE(" name ", locale));
 				response.setHasError(true);
 				return response;
 			}
 
-				Companies entityToSave = null;
-			entityToSave = CompaniesTransformer.INSTANCE.toEntity(dto);
+			// Enregistrement du logo
+			if (dto.getLogoPath() != null && !dto.getLogoPath().isEmpty()) {
+				try {
+					// Détecter le type MIME et l'extension à partir des données base64
+					String base64Data = dto.getLogoPath();
+					String fileExtension = ".png"; // Par défaut
+					String mimeType = null;
+
+					if (base64Data.startsWith("data:image")) {
+						// Extraire le type MIME (par exemple, "image/png" ou "image/jpeg")
+						mimeType = base64Data.split(";")[0].split(":")[1];
+						switch (mimeType) {
+							case "image/png":
+								fileExtension = ".png";
+								break;
+							case "image/jpeg":
+								fileExtension = ".jpg";
+								break;
+							case "image/gif":
+								fileExtension = ".gif";
+								break;
+							default:
+								throw new IllegalArgumentException("Unsupported image format: " + mimeType);
+						}
+						// Supprimer le préfixe "data:image/...;base64,"
+						base64Data = base64Data.split(",")[1];
+					}
+
+					// Vérifier la taille des données base64
+					if (base64Data.length() > MAX_FILE_SIZE * 4 / 3) { // Base64 augmente la taille d'environ 33%
+						response.setStatus(functionalError.FILE_TOO_LARGE("logo file", locale));
+						response.setHasError(true);
+						return response;
+					}
+
+					// Décoder les données base64
+					byte[] decodedBytes = Base64.getDecoder().decode(base64Data);
+
+					// Vérifier que les données décodées correspondent à une image valide
+					if (!isValidImage(decodedBytes, mimeType)) {
+						response.setStatus(functionalError.INVALID_FILE_TYPE("logo file", locale));
+						response.setHasError(true);
+						return response;
+					}
+
+					// Générer un nom de fichier unique avec la bonne extension
+					String uniqueFileName = UUID.randomUUID().toString() + fileExtension;
+					File logoFile = new File(logoDirectory, uniqueFileName);
+
+					// Écrire les données décodées dans un fichier
+					try (OutputStream out = new FileOutputStream(logoFile)) {
+						out.write(decodedBytes);
+					}
+
+					// Mettre à jour le chemin du logo dans l'entité
+					dto.setLogoPath(logoDirectoryPath + "/" + uniqueFileName);
+				} catch (IOException | IllegalArgumentException e) {
+					response.setStatus(functionalError.SAVE_FAIL("logo file", locale));
+					response.setHasError(true);
+					return response;
+				}
+			}
+
+			// Transformation de DTO en entité et ajout des métadonnées
+			Companies entityToSave = CompaniesTransformer.INSTANCE.toEntity(dto);
 			entityToSave.setCreatedAt(Utilities.getCurrentDate());
 			entityToSave.setCreatedBy(request.getUser());
 			entityToSave.setIsDeleted(false);
 			items.add(entityToSave);
 		}
 
+		// Sauvegarde des entreprises dans la base de données
 		if (!items.isEmpty()) {
-			List<Companies> itemsSaved = null;
-			// inserer les donnees en base de donnees
-			itemsSaved = companiesRepository.saveAll((Iterable<Companies>) items);
+			List<Companies> itemsSaved = companiesRepository.saveAll(items);
 			if (itemsSaved == null) {
 				response.setStatus(functionalError.SAVE_FAIL("companies", locale));
 				response.setHasError(true);
 				return response;
 			}
-			List<CompaniesDto> itemsDto = (Utilities.isTrue(request.getIsSimpleLoading())) ? CompaniesTransformer.INSTANCE.toLiteDtos(itemsSaved) : CompaniesTransformer.INSTANCE.toDtos(itemsSaved);
 
+			// Transformation des entités sauvegardées en DTOs
+			List<CompaniesDto> itemsDto = (Utilities.isTrue(request.getIsSimpleLoading())) ?
+					CompaniesTransformer.INSTANCE.toLiteDtos(itemsSaved) :
+					CompaniesTransformer.INSTANCE.toDtos(itemsSaved);
+
+			// Récupération des informations complètes pour chaque DTO
 			final int size = itemsSaved.size();
-			List<String>  listOfError      = Collections.synchronizedList(new ArrayList<String>());
+			List<String> listOfError = Collections.synchronizedList(new ArrayList<String>());
 			itemsDto.parallelStream().forEach(dto -> {
 				try {
 					dto = getFullInfos(dto, size, request.getIsSimpleLoading(), locale);
@@ -167,16 +241,37 @@ public class CompaniesBusiness implements IBasicBusiness<Request<CompaniesDto>, 
 					e.printStackTrace();
 				}
 			});
+
+			// Gestion des erreurs lors de la récupération des informations complètes
 			if (Utilities.isNotEmpty(listOfError)) {
 				Object[] objArray = listOfError.stream().distinct().toArray();
 				throw new RuntimeException(StringUtils.join(objArray, ", "));
 			}
+
+			// Retour de la réponse avec les données sauvegardées
 			response.setItems(itemsDto);
 			response.setHasError(false);
 		}
 
 		log.info("----end create Companies-----");
 		return response;
+	}
+
+	/**
+	 * Vérifie si les données décodées correspondent à une image valide.
+	 *
+	 * @param data     Les données binaires de l'image.
+	 * @param mimeType Le type MIME de l'image (par exemple, "image/png").
+	 * @return true si les données sont une image valide, sinon false.
+	 */
+	private boolean isValidImage(byte[] data, String mimeType) {
+		try (InputStream is = new ByteArrayInputStream(data)) {
+			// Vérifier que les données peuvent être lues comme une image
+			BufferedImage image = ImageIO.read(is);
+			return image != null; // Si l'image est lue correctement, elle est valide
+		} catch (IOException e) {
+			return false; // Si une exception est levée, les données ne sont pas une image valide
+		}
 	}
 
 	/**
@@ -187,79 +282,138 @@ public class CompaniesBusiness implements IBasicBusiness<Request<CompaniesDto>, 
 	 * 
 	 */
 	@Override
-	public Response<CompaniesDto> update(Request<CompaniesDto> request, Locale locale)  throws ParseException {
+	public Response<CompaniesDto> update(Request<CompaniesDto> request, Locale locale) throws ParseException {
 		log.info("----begin update Companies-----");
 
 		Response<CompaniesDto> response = new Response<CompaniesDto>();
-		List<Companies>        items    = new ArrayList<Companies>();
-			
+		List<Companies> items = new ArrayList<>();
+
+		// Chemin du dossier où les logos sont stockés
+		String logoDirectoryPath = paramsUtils.getTiketsRopository(); // Remplacez par le chemin réel
+		File logoDirectory = new File(logoDirectoryPath);
+
+		if (!logoDirectory.exists()) {
+			logoDirectory.mkdirs(); // Création du répertoire si inexistant
+		}
+
+		final long MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 Mo
+
 		for (CompaniesDto dto : request.getDatas()) {
-			// Definir les parametres obligatoires
-			Map<String, Object> fieldsToVerify = new HashMap<String, Object>();
+			// Vérification des champs obligatoires
+			Map<String, Object> fieldsToVerify = new HashMap<>();
 			fieldsToVerify.put("id", dto.getId());
+
 			if (!Validate.RequiredValue(fieldsToVerify).isGood()) {
 				response.setStatus(functionalError.FIELD_EMPTY(Validate.getValidate().getField(), locale));
 				response.setHasError(true);
 				return response;
 			}
 
-			// Verifier si la companies existe
-			Companies entityToSave = null;
-			entityToSave = companiesRepository.findOne(dto.getId(), false);
+			// Vérification si l'entreprise existe
+			Companies entityToSave = companiesRepository.findOne(dto.getId(), false);
 			if (entityToSave == null) {
 				response.setStatus(functionalError.DATA_NOT_EXIST("companies id -> " + dto.getId(), locale));
 				response.setHasError(true);
 				return response;
 			}
 
-			if (Utilities.notBlank(dto.getName())) {
-				entityToSave.setName(dto.getName());
-			}
-			if (Utilities.notBlank(dto.getAddress())) {
-				entityToSave.setAddress(dto.getAddress());
-			}
-			if (Utilities.notBlank(dto.getContact())) {
-				entityToSave.setContact(dto.getContact());
-			}
-			if (Utilities.notBlank(dto.getLicenseNumber())) {
-				entityToSave.setLicenseNumber(dto.getLicenseNumber());
-			}
-			if (dto.getRating() != null && dto.getRating() > 0) {
-				entityToSave.setRating(dto.getRating());
-			}
-			if (Utilities.notBlank(dto.getStatus())) {
-				entityToSave.setStatus(dto.getStatus());
-			}
-			if (dto.getCreatedBy() != null && dto.getCreatedBy() > 0) {
-				entityToSave.setCreatedBy(dto.getCreatedBy());
-			}
-			if (dto.getUpdatedBy() != null && dto.getUpdatedBy() > 0) {
-				entityToSave.setUpdatedBy(dto.getUpdatedBy());
-			}
-			if (Utilities.notBlank(dto.getDeletedAt())) {
-				entityToSave.setDeletedAt(dateFormat.parse(dto.getDeletedAt()));
-			}
-			if (dto.getDeletedBy() != null && dto.getDeletedBy() > 0) {
-				entityToSave.setDeletedBy(dto.getDeletedBy());
-			}
+			// Mise à jour des champs modifiables
+			if (Utilities.notBlank(dto.getName())) entityToSave.setName(dto.getName());
+			if (Utilities.notBlank(dto.getAddress())) entityToSave.setAddress(dto.getAddress());
+			if (Utilities.notBlank(dto.getContact())) entityToSave.setContact(dto.getContact());
+			if (Utilities.notBlank(dto.getLicenseNumber())) entityToSave.setLicenseNumber(dto.getLicenseNumber());
+			if (dto.getRating() != null && dto.getRating() > 0) entityToSave.setRating(dto.getRating());
+			if (Utilities.notBlank(dto.getStatus())) entityToSave.setStatus(dto.getStatus());
+			if (dto.getUpdatedBy() != null && dto.getUpdatedBy() > 0) entityToSave.setUpdatedBy(dto.getUpdatedBy());
 			entityToSave.setUpdatedAt(Utilities.getCurrentDate());
 			entityToSave.setUpdatedBy(request.getUser());
+
+			// Gestion de la mise à jour du logo
+			if (dto.getLogoPath() != null && !dto.getLogoPath().isEmpty()) {
+				try {
+					String base64Data = dto.getLogoPath();
+					String fileExtension = ".png"; // Par défaut
+					String mimeType = null;
+
+					if (base64Data.startsWith("data:image")) {
+						mimeType = base64Data.split(";")[0].split(":")[1];
+						switch (mimeType) {
+							case "image/png":
+								fileExtension = ".png";
+								break;
+							case "image/jpeg":
+								fileExtension = ".jpg";
+								break;
+							case "image/gif":
+								fileExtension = ".gif";
+								break;
+							default:
+								throw new IllegalArgumentException("Unsupported image format: " + mimeType);
+						}
+						base64Data = base64Data.split(",")[1]; // Supprime le préfixe base64
+					}
+
+					// Vérification de la taille du fichier
+					if (base64Data.length() > MAX_FILE_SIZE * 4 / 3) {
+						response.setStatus(functionalError.FILE_TOO_LARGE("logo file", locale));
+						response.setHasError(true);
+						return response;
+					}
+
+					// Décodage du fichier base64
+					byte[] decodedBytes = Base64.getDecoder().decode(base64Data);
+
+					if (!isValidImage(decodedBytes, mimeType)) {
+						response.setStatus(functionalError.INVALID_FILE_TYPE("logo file", locale));
+						response.setHasError(true);
+						return response;
+					}
+
+					// Suppression de l'ancien logo s'il existe
+					if (entityToSave.getLogoPath() != null) {
+						File oldLogoFile = new File(entityToSave.getLogoPath());
+						if (oldLogoFile.exists()) {
+							oldLogoFile.delete();
+						}
+					}
+
+					// Génération du nouveau nom de fichier
+					String uniqueFileName = UUID.randomUUID().toString() + fileExtension;
+					File newLogoFile = new File(logoDirectory, uniqueFileName);
+
+					// Écriture du fichier
+					try (OutputStream out = new FileOutputStream(newLogoFile)) {
+						out.write(decodedBytes);
+					}
+
+					// Mise à jour du chemin du logo dans l'entité
+					entityToSave.setLogoPath(logoDirectoryPath + "/" + uniqueFileName);
+				} catch (IOException | IllegalArgumentException e) {
+					response.setStatus(functionalError.SAVE_FAIL("logo file", locale));
+					response.setHasError(true);
+					return response;
+				}
+			}
+
 			items.add(entityToSave);
 		}
 
+		// Mise à jour des enregistrements en base de données
 		if (!items.isEmpty()) {
-			List<Companies> itemsSaved = null;
-			// maj les donnees en base
-			itemsSaved = companiesRepository.saveAll((Iterable<Companies>) items);
+			List<Companies> itemsSaved = companiesRepository.saveAll(items);
 			if (itemsSaved == null) {
 				response.setStatus(functionalError.SAVE_FAIL("companies", locale));
 				response.setHasError(true);
 				return response;
 			}
-			List<CompaniesDto> itemsDto = (Utilities.isTrue(request.getIsSimpleLoading())) ? CompaniesTransformer.INSTANCE.toLiteDtos(itemsSaved) : CompaniesTransformer.INSTANCE.toDtos(itemsSaved);
+
+			List<CompaniesDto> itemsDto = (Utilities.isTrue(request.getIsSimpleLoading())) ?
+					CompaniesTransformer.INSTANCE.toLiteDtos(itemsSaved) :
+					CompaniesTransformer.INSTANCE.toDtos(itemsSaved);
 
 			final int size = itemsSaved.size();
-			List<String>  listOfError      = Collections.synchronizedList(new ArrayList<String>());
+			List<String> listOfError = Collections.synchronizedList(new ArrayList<>());
+
 			itemsDto.parallelStream().forEach(dto -> {
 				try {
 					dto = getFullInfos(dto, size, request.getIsSimpleLoading(), locale);
@@ -268,10 +422,12 @@ public class CompaniesBusiness implements IBasicBusiness<Request<CompaniesDto>, 
 					e.printStackTrace();
 				}
 			});
+
 			if (Utilities.isNotEmpty(listOfError)) {
 				Object[] objArray = listOfError.stream().distinct().toArray();
 				throw new RuntimeException(StringUtils.join(objArray, ", "));
 			}
+
 			response.setItems(itemsDto);
 			response.setHasError(false);
 		}
@@ -279,6 +435,8 @@ public class CompaniesBusiness implements IBasicBusiness<Request<CompaniesDto>, 
 		log.info("----end update Companies-----");
 		return response;
 	}
+
+
 
 	/**
 	 * delete Companies by using CompaniesDto as object.

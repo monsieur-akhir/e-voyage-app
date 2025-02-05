@@ -1,6 +1,7 @@
 package tech.dev.eVoyageBackend.utils;
 
 import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -8,37 +9,46 @@ import org.springframework.stereotype.Component;
 import tech.dev.eVoyageBackend.dao.entity.Users;
 import tech.dev.eVoyageBackend.utils.dto.UsersDto;
 
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
 public class TokenService {
 
-    // Lire les durées d'expiration depuis application.properties ou application.yml
+    private static final Logger log = LoggerFactory.getLogger(TokenService.class);
+
     @Value("${token.access-token.expiration}")
     private long accessTokenExpiration;
 
     @Value("${token.refresh-token.expiration}")
     private long refreshTokenExpiration;
 
-    // Lire la clé secrète depuis application.properties ou application.yml
     @Value("${token.secret-key}")
     private String secretKey;
 
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    private Key getSigningKey() {
+        return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+    }
+
     /**
      * Générer un token d'accès.
      */
     public String generateAccessToken(Users user) {
+        log.info("Génération du token d'accès pour l'utilisateur ID: {}", user.getId());
         return Jwts.builder()
                 .setSubject(user.getEmail())
                 .claim("userId", user.getId())
                 .claim("roleId", user.getRoleId())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + accessTokenExpiration))
-                .signWith(SignatureAlgorithm.HS256, secretKey)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
@@ -46,12 +56,14 @@ public class TokenService {
      * Générer un refresh token.
      */
     public String generateRefreshToken(Users user) {
+        log.info("Génération du refresh token pour l'utilisateur ID: {}", user.getId());
         return Jwts.builder()
                 .setSubject(user.getEmail())
                 .claim("userId", user.getId())
+                .claim("roleId", user.getRoleId())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + refreshTokenExpiration))
-                .signWith(SignatureAlgorithm.HS256, secretKey)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
@@ -60,10 +72,15 @@ public class TokenService {
      */
     public void storeTokensInRedis(Long userId, String accessToken, String refreshToken) {
         try {
-            redisTemplate.opsForValue().set("accessToken:" + userId, accessToken, accessTokenExpiration, TimeUnit.MILLISECONDS);
-            redisTemplate.opsForValue().set("refreshToken:" + userId, refreshToken, refreshTokenExpiration, TimeUnit.MILLISECONDS);
+            if (accessToken != null && refreshToken != null) {
+                redisTemplate.opsForValue().set("accessToken:" + userId, accessToken, accessTokenExpiration, TimeUnit.MILLISECONDS);
+                redisTemplate.opsForValue().set("refreshToken:" + userId, refreshToken, refreshTokenExpiration, TimeUnit.MILLISECONDS);
+                log.info("Tokens stockés dans Redis pour l'utilisateur ID: {}", userId);
+            } else {
+                log.warn("Tentative de stockage d'un token NULL pour l'utilisateur ID: {}", userId);
+            }
         } catch (Exception e) {
-            System.err.println("Erreur lors de la sauvegarde des tokens dans Redis : " + e.getMessage());
+            log.error("Erreur lors de la sauvegarde des tokens dans Redis : {}", e.getMessage(), e);
         }
     }
 
@@ -74,7 +91,7 @@ public class TokenService {
         try {
             return redisTemplate.opsForValue().get("refreshToken:" + userId);
         } catch (Exception e) {
-            System.err.println("Erreur lors de la récupération du refresh token dans Redis : " + e.getMessage());
+            log.error("Erreur lors de la récupération du refresh token dans Redis : {}", e.getMessage(), e);
             return null;
         }
     }
@@ -86,8 +103,9 @@ public class TokenService {
         try {
             redisTemplate.delete("accessToken:" + userId);
             redisTemplate.delete("refreshToken:" + userId);
+            log.info("Tokens supprimés de Redis pour l'utilisateur ID: {}", userId);
         } catch (Exception e) {
-            System.err.println("Erreur lors de la suppression des tokens dans Redis : " + e.getMessage());
+            log.error("Erreur lors de la suppression des tokens dans Redis : {}", e.getMessage(), e);
         }
     }
 
@@ -96,15 +114,11 @@ public class TokenService {
      */
     public boolean isUserConnected(Long userId) {
         try {
-            String accessTokenKey = "accessToken:" + userId;
-            String refreshTokenKey = "refreshToken:" + userId;
-
-            boolean accessTokenExists = Boolean.TRUE.equals(redisTemplate.hasKey(accessTokenKey));
-            boolean refreshTokenExists = Boolean.TRUE.equals(redisTemplate.hasKey(refreshTokenKey));
-
+            boolean accessTokenExists = Boolean.TRUE.equals(redisTemplate.hasKey("accessToken:" + userId));
+            boolean refreshTokenExists = Boolean.TRUE.equals(redisTemplate.hasKey("refreshToken:" + userId));
             return accessTokenExists || refreshTokenExists;
         } catch (Exception e) {
-            System.err.println("Erreur lors de la vérification de connexion utilisateur : " + e.getMessage());
+            log.error("Erreur lors de la vérification de connexion utilisateur : {}", e.getMessage(), e);
             return false;
         }
     }
@@ -114,18 +128,18 @@ public class TokenService {
      */
     public boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
+            Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
             return true;
         } catch (ExpiredJwtException e) {
-            System.err.println("Token expiré : " + e.getMessage());
+            log.error("Token expiré : {}", e.getMessage());
         } catch (UnsupportedJwtException e) {
-            System.err.println("Token non supporté : " + e.getMessage());
+            log.error("Token non supporté : {}", e.getMessage());
         } catch (MalformedJwtException e) {
-            System.err.println("Token mal formé : " + e.getMessage());
+            log.error("Token mal formé : {}", e.getMessage());
         } catch (SignatureException e) {
-            System.err.println("Signature invalide : " + e.getMessage());
+            log.error("Signature invalide : {}", e.getMessage());
         } catch (IllegalArgumentException e) {
-            System.err.println("Token vide : " + e.getMessage());
+            log.error("Token vide ou null : {}", e.getMessage());
         }
         return false;
     }
@@ -135,8 +149,9 @@ public class TokenService {
      */
     public UsersDto getUserFromToken(String token) {
         try {
-            var claims = Jwts.parser()
-                    .setSigningKey(secretKey)
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(getSigningKey())
+                    .build()
                     .parseClaimsJws(token)
                     .getBody();
 
@@ -144,13 +159,12 @@ public class TokenService {
             usersDto.setId(Integer.valueOf(claims.get("userId").toString()));
             usersDto.setRoleId(Integer.valueOf(claims.get("roleId").toString()));
             usersDto.setEmail(claims.getSubject());
-            usersDto.setStatus("ACTIVE"); // Vous pouvez le récupérer de la base si nécessaire
+            usersDto.setStatus("ACTIVE");
 
             return usersDto;
-        } catch (Exception e) {
-            System.err.println("Erreur lors de l'extraction du token : " + e.getMessage());
+        } catch (JwtException e) {
+            log.error("Erreur lors de l'extraction des données du token : {}", e.getMessage(), e);
             return null;
         }
     }
-
 }

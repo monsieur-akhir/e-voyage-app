@@ -12,7 +12,7 @@ import tech.dev.eVoyageBackend.utils.dto.StationsDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-26T13:28:52+0100",
+    date = "2025-01-30T15:57:22+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class StationsTransformerImpl implements StationsTransformer {

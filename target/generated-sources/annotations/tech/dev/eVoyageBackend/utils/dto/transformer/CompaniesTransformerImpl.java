@@ -10,7 +10,7 @@ import tech.dev.eVoyageBackend.utils.dto.CompaniesDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-26T13:28:54+0100",
+    date = "2025-01-30T15:57:22+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class CompaniesTransformerImpl implements CompaniesTransformer {
@@ -39,6 +39,7 @@ public class CompaniesTransformerImpl implements CompaniesTransformer {
         companiesDto.setLicenseNumber( entity.getLicenseNumber() );
         companiesDto.setRating( entity.getRating() );
         companiesDto.setStatus( entity.getStatus() );
+        companiesDto.setLogoPath( entity.getLogoPath() );
         companiesDto.setCreatedBy( entity.getCreatedBy() );
         companiesDto.setUpdatedBy( entity.getUpdatedBy() );
         companiesDto.setIsDeleted( entity.getIsDeleted() );
@@ -76,6 +77,7 @@ public class CompaniesTransformerImpl implements CompaniesTransformer {
         companies.setLicenseNumber( dto.getLicenseNumber() );
         companies.setRating( dto.getRating() );
         companies.setStatus( dto.getStatus() );
+        companies.setLogoPath( dto.getLogoPath() );
         if ( dto.getCreatedAt() != null ) {
             companies.setCreatedAt( new SimpleDateFormat( "dd/MM/yyyy" ).parse( dto.getCreatedAt() ) );
         }

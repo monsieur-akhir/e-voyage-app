@@ -20,6 +20,8 @@ import org.thymeleaf.TemplateEngine;
 import tech.dev.eVoyageBackend.dao.entity.Tickets;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.text.SimpleDateFormat;
 import com.itextpdf.html2pdf.HtmlConverter;
@@ -229,8 +231,16 @@ public class PdfGenerator {
         double totalPrice = pricePerSeat * numberOfSeats;
 
         // Formatter les dates en dd/MM/yyyy
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+// Convertir la chaîne de départ en LocalDate
+        LocalDate departureLocalDate = LocalDate.parse(ticket.getBookings().getDeparts().getDepartureDate(), inputFormatter);
+
+// Formater en chaîne "dd/MM/yyyy"
+        String departureDate = departureLocalDate.format(outputFormatter);
+
         SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
-        String departureDate = dateFormatter.format(ticket.getBookings().getDeparts().getDepartureDate());
         String dateAchat = dateFormatter.format(ticket.getCreatedAt());
 
         Context context = new Context();

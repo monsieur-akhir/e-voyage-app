@@ -39,6 +39,7 @@ public class CompaniesDto extends _CompaniesDto implements Cloneable{
     private String     licenseNumber        ;
     private Double     rating               ;
     private String     status               ;
+	private String     logoPath				;
 	private String     createdAt            ;
     private Integer    createdBy            ;
 	private String     updatedAt            ;
@@ -58,7 +59,8 @@ public class CompaniesDto extends _CompaniesDto implements Cloneable{
 	private SearchParam<String>   contactParam          ;                     
 	private SearchParam<String>   licenseNumberParam    ;                     
 	private SearchParam<Double>   ratingParam           ;                     
-	private SearchParam<String>   statusParam           ;                     
+	private SearchParam<String>   statusParam           ;
+	private SearchParam<String>   logoPathParam         ;
 	private SearchParam<String>   createdAtParam        ;                     
 	private SearchParam<Integer>  createdByParam        ;                     
 	private SearchParam<String>   updatedAtParam        ;                     

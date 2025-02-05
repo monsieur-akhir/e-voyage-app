@@ -24,7 +24,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeParseException;
 import java.util.*;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.transaction.annotation.Transactional;
 import tech.dev.eVoyageBackend.utils.*;
@@ -224,6 +231,7 @@ public class PaymentsBusiness implements IBasicBusiness<Request<PaymentsDto>, Re
 			fieldsToVerify.put("bookingId", dto.getBookingId());
 			fieldsToVerify.put("companyId", dto.getCompanyId());
 			fieldsToVerify.put("paymentMethod", dto.getPaymentMethod());
+
 			if (!Validate.RequiredValue(fieldsToVerify).isGood()) {
 				log.error("Champ obligatoire manquant : {}", Validate.getValidate().getField());
 				response.setStatus(functionalError.FIELD_EMPTY(Validate.getValidate().getField(), locale));
@@ -251,7 +259,7 @@ public class PaymentsBusiness implements IBasicBusiness<Request<PaymentsDto>, Re
 				return response;
 			}
 
-			// Vérification du départ associé à la réservation avec un verrou pessimiste
+			// Vérification du départ associé à la réservation
 			log.info("Récupération et verrouillage du départ pour la réservation ID : {}", dto.getBookingId());
 			Departs associatedDepart = departsRepository.findAndLockById(existingBookings.getDeparts().getId());
 			if (associatedDepart == null) {
@@ -261,33 +269,30 @@ public class PaymentsBusiness implements IBasicBusiness<Request<PaymentsDto>, Re
 				return response;
 			}
 
-			// Vérification si la date de départ dépasse la date actuelle
-			Date currentDateTime = new Date(); // Date et heure actuelles
+			// Vérification de la validité de la date et de l'heure de départ
+			try {
+				DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
-			// Combiner departureDate et departureTime en un seul objet Date
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(associatedDepart.getDepartureDate()); // Définit la date
-			if (associatedDepart.getDepartureTime() != null) {
-				calendar.set(Calendar.HOUR_OF_DAY, associatedDepart.getDepartureTime().getHours()); // Définit l'heure
-				calendar.set(Calendar.MINUTE, associatedDepart.getDepartureTime().getMinutes()); // Définit les minutes
-				calendar.set(Calendar.SECOND, 0); // Définit les secondes à 0
-				calendar.set(Calendar.MILLISECOND, 0); // Définit les millisecondes à 0
-			}
-			Date combinedDepartureDateTime = calendar.getTime();
+				LocalDate departureDate = LocalDate.parse(associatedDepart.getDepartureDate(), dateFormatter);
+				LocalTime departureTime = LocalTime.parse(associatedDepart.getDepartureTime(), timeFormatter);
+				LocalDateTime departureDateTime = LocalDateTime.of(departureDate, departureTime);
 
-// Vérification si le départ est déjà passé
-			if (combinedDepartureDateTime.before(currentDateTime)) {
-				log.error("Le départ du {} à {} est déjà passé", associatedDepart.getDepartureDate(), associatedDepart.getDepartureTime());
-				response.setStatus(functionalError.INVALID_DATE_PERIOD(
-						"Départ déjà passé : " + associatedDepart.getDepartureDate() + " " + associatedDepart.getDepartureTime(), locale));
+				if (departureDateTime.isBefore(LocalDateTime.now())) {
+					log.error("Le départ du {} à {} est déjà passé", departureDate, departureTime);
+					response.setStatus(functionalError.INVALID_DATE_PERIOD(
+							"Départ déjà passé : " + departureDate + " " + departureTime, locale));
+					response.setHasError(true);
+					return response;
+				}
+			} catch (DateTimeParseException | NullPointerException e) {
+				log.error("Erreur de parsing de date/heure pour le départ ID {}", associatedDepart.getId(), e);
+				response.setStatus(functionalError.INVALID_FORMAT("Format invalide. Utilisez yyyy-MM-dd et HH:mm", locale));
 				response.setHasError(true);
 				return response;
 			}
 
-			log.info("Le départ est valide pour la réservation ID : {}", dto.getBookingId());
-
-
-			// Vérification des places disponibles pour le départ
+			// Vérification des places disponibles
 			if (associatedDepart.getAvailableSeats() < existingBookings.getNumberOfSeats()) {
 				log.error("Pas assez de places disponibles pour le départ ID : {}", associatedDepart.getId());
 				response.setStatus(functionalError.INSUFFICIENT_SEATS("Available seats: " + associatedDepart.getAvailableSeats(), locale));
@@ -296,94 +301,70 @@ public class PaymentsBusiness implements IBasicBusiness<Request<PaymentsDto>, Re
 			}
 
 			// Calcul du montant total
-			log.info("Calcul du montant total pour la réservation ID : {}", dto.getBookingId());
-			int numberOfSeats = existingBookings.getNumberOfSeats();
-			double pricePerSeat = associatedDepart.getPrice();
-			double totalAmount = numberOfSeats * pricePerSeat;
+			double totalAmount = existingBookings.getNumberOfSeats() * associatedDepart.getPrice();
 			dto.setAmount(totalAmount);
-			log.info("Montant total pour la réservation ID {} : {}", dto.getBookingId(), totalAmount);
+			log.info("Montant total calculé : {} pour la réservation ID : {}", totalAmount, dto.getBookingId());
 
-			// Créer un objet Payments
-			log.info("Création de l'entité Payment pour la réservation ID : {}", dto.getBookingId());
+			// Création et enregistrement du paiement
 			Payments entityToSave = PaymentsTransformer.INSTANCE.toEntity(dto, existingBookings, existingCompanies);
 			entityToSave.setStatus("COMPLETED");
 			entityToSave.setCreatedAt(Utilities.getCurrentDate());
-			entityToSave.setCreatedBy(request.getUser());
-			entityToSave.setIsDeleted(false);
-
 			Payments savedPayment = paymentsRepository.save(entityToSave);
 
-			// Mettre à jour le statut de la réservation
-			log.info("Mise à jour du statut de la réservation ID {} à CONFIRMED", dto.getBookingId());
+			// Mise à jour du statut de la réservation
 			existingBookings.setStatus("CONFIRMED");
 			existingBookings.setUpdatedAt(Utilities.getCurrentDate());
 			bookingsRepository.save(existingBookings);
 
-			// Réduire le nombre de places disponibles pour le départ
-			log.info("Mise à jour des places disponibles pour le départ ID : {}", associatedDepart.getId());
-			int updatedAvailableSeats = associatedDepart.getAvailableSeats() - numberOfSeats;
-			associatedDepart.setAvailableSeats(updatedAvailableSeats);
-			departsRepository.save(associatedDepart);
+			// Mise à jour du nombre de places disponibles
+			int updatedAvailableSeats = associatedDepart.getAvailableSeats() - existingBookings.getNumberOfSeats();
+			if (updatedAvailableSeats >= 0) {
+				associatedDepart.setAvailableSeats(updatedAvailableSeats);
+				departsRepository.save(associatedDepart);
+			}
 
-			// Générer un QR code en Base64
-			log.info("Génération du QR code pour la réservation ID : {}", dto.getBookingId());
+			// Génération du QR Code
 			String qrCodeBase64;
 			try {
 				qrCodeBase64 = generateQrCode(existingBookings);
 			} catch (Exception e) {
-				log.error("Erreur lors de la génération du QR code pour la réservation ID : {}", dto.getBookingId(), e);
+				log.error("Erreur lors de la génération du QR code", e);
 				response.setStatus(functionalError.QR_CODE_GENERATION_FAILED("Booking ID: " + dto.getBookingId(), locale));
 				response.setHasError(true);
 				return response;
 			}
 
-			// Créer un ticket
-			log.info("Création du ticket pour la réservation ID : {}", dto.getBookingId());
+			// Création du ticket
 			Tickets ticket = new Tickets();
 			ticket.setQrCode(qrCodeBase64);
 			ticket.setStatus("VALID");
 			ticket.setBookings(existingBookings);
 			ticket.setCompanies(existingCompanies);
 			ticket.setCreatedAt(Utilities.getCurrentDate());
-			ticket.setIsDeleted(false);
-			ticket.setCreatedBy(request.getUser());
 			Tickets savedTicket = ticketsRepository.save(ticket);
 
-			// Générer un PDF pour le ticket avec QR code
-			log.info("Génération du PDF pour le ticket ID : {}", savedTicket.getId());
-			String baseDirectory = "/var/www/tickets/";
-			String pdfPath = baseDirectory + "ticket_" + savedTicket.getId() + ".pdf";
+			// Génération du PDF pour le ticket
+			String pdfPath = paramUtils.getTiketsRopository() + "/ticket_" + savedTicket.getId() + ".pdf";
 			try {
-				File directory = new File(baseDirectory);
-				if (!directory.exists()) {
-					directory.mkdirs();
-				}
 				pdfGenerator.generateTicketPdfWithFlyingSaucer(savedTicket, qrCodeBase64, pdfPath);
 			} catch (Exception e) {
-				log.error("Erreur lors de la génération du PDF pour le ticket ID : {}", savedTicket.getId(), e);
+				log.error("Erreur lors de la génération du PDF", e);
 				response.setStatus(functionalError.PDF_GENERATION_FAILED("Ticket ID: " + savedTicket.getId(), locale));
 				response.setHasError(true);
 				return response;
 			}
 
-			// Ajouter un lien de téléchargement au DTO
-			log.info("Ajout du lien de téléchargement pour le ticket ID : {}", savedTicket.getId());
-			String downloadLink = paramUtils.getBaseUrl() + "/download?file=" + pdfPath;
-
-			// Ajouter le lien au DTO
+			// Ajout du lien de téléchargement au DTO
+			//String downloadLink = paramUtils.getBaseUrl() + "/download?file=" + pdfPath;
+			String downloadLink = pdfPath;
 			PaymentsDto paymentsDto = PaymentsTransformer.INSTANCE.toDto(savedPayment);
 			paymentsDto.setDownloadLink(downloadLink);
-
-			// Ajouter le DTO à la liste de réponse
 			dtos.add(paymentsDto);
 		}
 
-		// Construire la réponse finale
-		log.info("Construction de la réponse avec {} paiements traités.", dtos.size());
 		response.setItems(dtos);
 		response.setStatus(functionalError.SUCCESS("Paiements créés avec succès", locale));
 		response.setHasError(false);
-
 		log.info("---- Fin de la création des paiements -----");
 		return response;
 	}
@@ -647,11 +628,13 @@ public class PaymentsBusiness implements IBasicBusiness<Request<PaymentsDto>, Re
 
 	private String generateQrCode(Bookings booking) {
 		String qrData = String.format(
-				"Booking ID: %s,Client Id: %s, Client Name: %s, Departure: %s, Destination: %s,Compagnie: %s, Status: %s",
+				"Booking ID: %s, Client Id: %s, Client Name: %s, Ville de Depart: %s, Departure Station: %s, Ville d'arrivée: %s, Destination Station: %s, Compagnie: %s, Status: %s",
 				booking.getId(),
 				booking.getUsers().getId(),
 				booking.getUsers().getName(),
+				booking.getStations().getCities().getName(),
 				booking.getStations().getName(),
+				booking.getStations2().getCities().getName(),
 				booking.getStations2().getName(),
 				booking.getCompanies().getName(),
 				booking.getStatus()

@@ -8,17 +8,24 @@
 
 package tech.dev.eVoyageBackend.business;
 
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
 import lombok.extern.java.Log;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.io.ByteArrayInputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import tech.dev.eVoyageBackend.rest.api.TicketsController;
 import tech.dev.eVoyageBackend.utils.*;
 import tech.dev.eVoyageBackend.utils.dto.*;
 import tech.dev.eVoyageBackend.utils.enums.*;
@@ -74,6 +81,7 @@ public class TicketsBusiness implements IBasicBusiness<Request<TicketsDto>, Resp
 	private ExceptionUtils exceptionUtils;
 	@PersistenceContext
 	private EntityManager em;
+	private static final Logger log = LoggerFactory.getLogger(TicketsBusiness.class);
 
 	private SimpleDateFormat dateFormat;
 	private SimpleDateFormat dateTimeFormat;
@@ -435,66 +443,200 @@ public class TicketsBusiness implements IBasicBusiness<Request<TicketsDto>, Resp
 		return dto;
 	}
 
-	public String controlQrCode(String base64QrCode) {
-		// Décoder le QR code à partir de Base64
-		String qrData = decodeQrCode(base64QrCode);
 
-		// Extraire les informations du QR code (parsing simplifié ici)
-		String[] data = qrData.split(", ");
-		String bookingId = data[0].split(": ")[1];
-		String clientId = data[1].split(": ")[1];
-		String clientName = data[2].split(": ")[1];
-		String departureStation = data[3].split(": ")[1];
-		String destinationStation = data[4].split(": ")[1];
-		String compagnie = data[5].split(": ")[1];
-		String status = data[6].split(": ")[1];
+
+	public Response<TicketValidationDto> controlQrCode(Request<TicketValidationRequestDto> request, Locale locale) {
+		log.info("----begin controlQrCode-----");
+
+		Response<TicketValidationDto> response = new Response<>();
+
+		// Vérification des données de la requête
+		if (request.getDatas() == null || request.getDatas().isEmpty()) {
+			log.warn("Échec : QR Code manquant dans la requête.");
+			response.setStatus(functionalError.FIELD_EMPTY("QR Code", locale));
+			response.setHasError(true);
+			return response;
+		}
+
+		TicketValidationRequestDto requestData = request.getDatas().get(0);
+		String base64QrCode = requestData.getBase64QrCode();
+
+		if (base64QrCode == null || base64QrCode.trim().isEmpty()) {
+			log.warn("Échec : Le QR Code est vide ou invalide.");
+			response.setStatus(functionalError.FIELD_EMPTY("QR Code", locale));
+			response.setHasError(true);
+			return response;
+		}
+
+		log.info("Décodage du QR Code en cours...");
+		String qrData;
+		try {
+			qrData = decodeQrCode(base64QrCode);
+			if (qrData == null || qrData.trim().isEmpty()) {
+				log.warn("Échec : QR Code non reconnu ou mal formaté.");
+				response.setStatus(functionalError.INVALID_FILE_TYPE("QR Code", locale));
+				response.setHasError(true);
+				return response;
+			}
+			log.info("QR Code décodé avec succès : {}", qrData);
+		} catch (Exception e) {
+			log.error("Erreur lors du décodage du QR Code", e);
+			response.setStatus(functionalError.QR_CODE_DECODE_FAILED("QR Code decoding", locale));
+			response.setHasError(true);
+			return response;
+		}
+
+		log.info("Extraction des informations du QR Code...");
+		Map<String, String> qrInfo = parseQrData(qrData);
+		if (qrInfo.isEmpty()) {
+			log.warn("Échec : Données QR Code invalides.");
+			response.setStatus(functionalError.INVALID_FILE_TYPE("QR Code", locale));
+			response.setHasError(true);
+			return response;
+		}
+
+		String bookingId = qrInfo.get("booking_id");
+		String clientId = qrInfo.get("client_id");
+		String clientName = qrInfo.get("client_name");
+		String departureCity = qrInfo.get("departure_city");
+		String departureStation = qrInfo.get("departure_station");
+		String destinationCity = qrInfo.get("destination_city");
+		String destinationStation = qrInfo.get("destination_station");
+		String compagnie = qrInfo.get("compagnie");
+		String status = qrInfo.get("status");
+
+		log.info("QR Code analysé : BookingID={}, Client ID={}, Client={}, Départ={} ({}) → Destination={} ({}), Compagnie={}, Statut={}",
+				bookingId, clientId, clientName, departureCity, departureStation, destinationCity, destinationStation, compagnie, status);
+
+		// Vérifier la validité du Booking ID
+		if (!Utilities.isNumeric(bookingId)) {
+			log.warn("Échec : Booking ID invalide : {}", bookingId);
+			response.setStatus(functionalError.INVALID_DATA("Booking ID", locale));
+			response.setHasError(true);
+			return response;
+		}
 
 		// Rechercher le ticket correspondant dans la base
-		Tickets ticket = ticketsRepository.findByBookingId2(Integer.parseInt(bookingId))
-				.orElseThrow(() -> new RuntimeException("Ticket introuvable pour Booking ID: " + bookingId));
+		log.info("Recherche du ticket en base pour Booking ID {}", bookingId);
+		Tickets ticket;
+		try {
+			ticket = ticketsRepository.findByBookingId2(Integer.parseInt(bookingId))
+					.orElseThrow(() -> new RuntimeException("Ticket introuvable pour Booking ID: " + bookingId));
+			log.info("Ticket trouvé en base : Booking ID {}", bookingId);
+		} catch (Exception e) {
+			log.warn("Échec : Ticket introuvable pour Booking ID {}", bookingId);
+			response.setStatus(functionalError.DATA_NOT_EXIST("Booking ID: " + bookingId, locale));
+			response.setHasError(true);
+			return response;
+		}
 
 		// Vérifier si le ticket a déjà été consommé
 		if ("CONSUMED".equalsIgnoreCase(ticket.getStatus())) {
-			throw new RuntimeException("Ce ticket a déjà été consommé.");
+			log.warn("Échec : Ticket déjà consommé pour Booking ID {}", bookingId);
+			response.setStatus(functionalError.DATA_EXIST("Ce ticket a déjà été consommé", locale));
+			response.setHasError(true);
+			return response;
 		}
 
-		// Vérifier la validité temporelle du ticket
+		// Vérifier la validité temporelle du ticket (Fuseau horaire: Africa/Abidjan)
+		log.info("Vérification de la validité du ticket...");
 		Date purchaseDate = ticket.getCreatedAt();
+		ZoneId zoneId = ZoneId.of("Africa/Abidjan");
 		LocalDate validUntilDate = purchaseDate.toInstant()
-				.atZone(ZoneId.systemDefault())
+				.atZone(zoneId)
 				.toLocalDate()
 				.plusDays(ticketValidityDays);
 
-		if (LocalDate.now().isAfter(validUntilDate)) {
-			throw new RuntimeException("Ce ticket a expiré.");
+		if (LocalDate.now(zoneId).isAfter(validUntilDate)) {
+			log.warn("Échec : Ticket expiré pour Booking ID {}", bookingId);
+			response.setStatus(functionalError.DATA_EXPIRED("Ce ticket a expiré", locale));
+			response.setHasError(true);
+			return response;
 		}
 
-		// Si valide, mettre à jour le statut du ticket
+		// Mettre à jour le statut du ticket
+		log.info("Validation du ticket en cours...");
 		ticket.setStatus("CONSUMED");
 		ticket.setUpdatedAt(new Date());
 		ticketsRepository.save(ticket);
+		log.info("Ticket validé avec succès pour Booking ID {}", bookingId);
 
-		// Retourner les informations du ticket
-		return String.format(
-				"Ticket valide. Voyage de %s à %s. Client ID: %s. Nom Client: %s. Compagnie de transport: %s. Statut: %s",
-				departureStation,
-				destinationStation,
+		// Créer l'objet DTO pour la réponse
+		// Créer l'objet DTO pour la réponse avec les nouvelles informations
+		TicketValidationDto ticketDto = new TicketValidationDto(
+				bookingId,
 				clientId,
 				clientName,
+				departureCity,
+				departureStation,
+				destinationCity,
+				destinationStation,
 				compagnie,
 				ticket.getStatus()
 		);
+
+
+		response.setItems(Collections.singletonList(ticketDto));
+		response.setStatus(functionalError.SUCCESS("Validation du ticket", locale));
+		response.setHasError(false);
+
+		log.info("----end controlQrCode-----");
+		return response;
 	}
+
+	/**
+	 * Parse les données extraites du QR Code sous forme de clé-valeur.
+	 *
+	 * @param qrData Données brutes extraites du QR Code.
+	 * @return Map contenant les informations du ticket.
+	 */
+	private Map<String, String> parseQrData(String qrData) {
+		Map<String, String> qrInfo = new HashMap<>();
+		try {
+			log.info("Début du parsing du QR Code : {}", qrData);
+
+			String[] data = qrData.split(",");
+			for (String entry : data) {
+				String[] keyValue = entry.split(":", 2); // Limite le split pour éviter de couper les valeurs contenant ":"
+				if (keyValue.length == 2) {
+					String key = keyValue[0].trim().toLowerCase().replace(" ", "_"); // Normalise la clé
+					String value = keyValue[1].trim();
+					qrInfo.put(key, value);
+					log.info("Clé détectée : {} - Valeur : {}", key, value);
+				} else {
+					log.warn("Format invalide détecté dans le QR Code : {}", entry);
+				}
+			}
+		} catch (Exception e) {
+			log.error("Erreur lors du parsing du QR Code : {}", e.getMessage(), e);
+		}
+
+		log.info("Données extraites du QR Code : {}", qrInfo);
+		return qrInfo;
+	}
+
+
 
 	private String decodeQrCode(String base64QrCode) {
 		try {
+			// Décoder le Base64 en image
 			byte[] decodedBytes = Base64.getDecoder().decode(base64QrCode);
-			String qrData = new String(decodedBytes);
-			return qrData;
+			ByteArrayInputStream bais = new ByteArrayInputStream(decodedBytes);
+			BufferedImage bufferedImage = ImageIO.read(bais);
+
+			if (bufferedImage == null) {
+				throw new RuntimeException("L'image décodée du QR Code est invalide.");
+			}
+
+			// Lire le QR Code à partir de l'image
+			LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);
+			BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+			Result result = new MultiFormatReader().decode(bitmap);
+
+			return result.getText(); // Retourner le texte extrait du QR code
 		} catch (Exception e) {
 			throw new RuntimeException("Erreur lors du décodage du QR Code.", e);
 		}
 	}
-
 
 }

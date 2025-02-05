@@ -9,6 +9,7 @@
 
 package tech.dev.eVoyageBackend.rest.api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -63,6 +64,9 @@ public class TicketsController {
     private BusinessFactory businessFactory;
 	@Autowired
 	private TicketsBusiness ticketsBusiness;
+
+    @Autowired
+    private FunctionalError functionalError;
     private static final Logger log = LoggerFactory.getLogger(TicketsController.class);
 
 	@RequestMapping(value="/create",method=RequestMethod.POST,consumes = {"application/json"},produces={"application/json"})
@@ -163,6 +167,49 @@ public class TicketsController {
         }
 
         log.info("End method /tickets/download");
+    }
+
+    @PostMapping(value = "/control-qr", consumes = {"application/json"}, produces = {"application/json"})
+    public Response<TicketValidationDto> controlQrCode(@RequestBody Request<TicketValidationRequestDto> request, Locale locale) {
+        log.info("Start method /tickets/control-qr");
+
+        Response<TicketValidationDto> response = new Response<>();
+
+        try {
+            // Vérification des droits d'accès utilisateur
+            log.info("Vérification des droits d'accès utilisateur...");
+            businessFactory.checkUserAccess(request, FunctionalityEnum.VIEW_TICKETS, locale);
+            log.info("Accès utilisateur vérifié avec succès.");
+
+            // Exécution du contrôle du QR Code
+            log.info("Appel du business pour le contrôle du QR Code...");
+            response = ticketsBusiness.controlQrCode(request, locale);
+            log.info("Business exécuté avec succès.");
+
+            // Vérification du statut de la réponse
+            if (response.getStatus() != null && response.getStatus().getCode() != null) {
+                if (!"800".equals(response.getStatus().getCode())) {
+                    log.warn("Erreur lors du contrôle du QR Code : {}", response.getStatus().getMessage());
+                    response.setHasError(true);
+                    return response;
+                }
+            }
+
+            log.info("End method /tickets/control-qr - Success");
+            return response;
+
+        } catch (RuntimeException e) {
+            log.error("Erreur métier lors du contrôle du QR Code", e);
+            response.setStatus(functionalError.UNEXPECTED_ERROR("Erreur métier lors du contrôle du QR Code", locale));
+            response.setHasError(true);
+            return response;
+
+        } catch (Exception e) {
+            log.error("Erreur inattendue lors du contrôle du QR Code", e);
+            response.setStatus(functionalError.UNEXPECTED_ERROR("Erreur inattendue lors du contrôle du QR Code", locale));
+            response.setHasError(true);
+            return response;
+        }
     }
 
 }

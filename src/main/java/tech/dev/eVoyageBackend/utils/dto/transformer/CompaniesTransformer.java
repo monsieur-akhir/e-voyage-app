@@ -75,6 +75,7 @@ public interface CompaniesTransformer {
 		@Mapping(source="dto.licenseNumber", target="licenseNumber"),
 		@Mapping(source="dto.rating", target="rating"),
 		@Mapping(source="dto.status", target="status"),
+		@Mapping(source="dto.logoPath", target="logoPath"),
 		@Mapping(source="dto.createdAt", dateFormat="dd/MM/yyyy",target="createdAt"),
 		@Mapping(source="dto.createdBy", target="createdBy"),
 		@Mapping(source="dto.updatedAt", dateFormat="dd/MM/yyyy",target="updatedAt"),

@@ -43,13 +43,13 @@ public class Departs implements Serializable, Cloneable {
     //----------------------------------------------------------------------
     // ENTITY DATA FIELDS 
     //----------------------------------------------------------------------    
-    @Temporal(TemporalType.DATE)
-    @Column(name="departure_date", nullable=false)
-    private Date       departureDate ;
 
-    @Temporal(TemporalType.TIME)
+    @Column(name="departure_date", nullable=false)
+    private String       departureDate ;
+
+
     @Column(name="departure_time", nullable=false)
-    private Date       departureTime ;
+    private String       departureTime ;
 
     @Column(name="duration")
     private Integer    duration     ;

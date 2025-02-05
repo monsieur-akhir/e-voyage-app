@@ -35,8 +35,8 @@ public class DepartsDto extends _DepartsDto implements Cloneable{
     private Integer    busId                ;
     private Integer    originStationId      ;
     private Integer    destinationStationId ;
-    private Date       departureDate        ;
-    private Date       departureTime        ;
+    private String       departureDate        ;
+    private String       departureTime        ;
     private Double     price                ;
     private Integer    maxSeats             ;
     private Integer    availableSeats       ;
@@ -65,8 +65,8 @@ public class DepartsDto extends _DepartsDto implements Cloneable{
 	private SearchParam<Integer>  busIdParam            ;                     
 	private SearchParam<Integer>  originStationIdParam  ;                     
 	private SearchParam<Integer>  destinationStationIdParam;                     
-	private SearchParam<Date>     departureDateParam    ;                     
-	private SearchParam<Date>     departureTimeParam    ;                     
+	private SearchParam<String>     departureDateParam    ;
+	private SearchParam<String>     departureTimeParam    ;
 	private SearchParam<Double>   priceParam            ;                     
 	private SearchParam<Integer>  maxSeatsParam         ;                     
 	private SearchParam<Integer>  availableSeatsParam   ;
