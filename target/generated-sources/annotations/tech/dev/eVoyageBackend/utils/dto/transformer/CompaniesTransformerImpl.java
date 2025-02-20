@@ -10,7 +10,7 @@ import tech.dev.eVoyageBackend.utils.dto.CompaniesDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-30T15:57:22+0100",
+    date = "2025-02-12T09:52:15+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class CompaniesTransformerImpl implements CompaniesTransformer {

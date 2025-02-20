@@ -57,6 +57,7 @@ public class DepartsDto extends _DepartsDto implements Cloneable{
 	private String stationsNameDeparture;
 	private String stationsNameArrival;
 	private String companiesName;
+	private Integer companiesId;
 	private String villeDepart;
 	private String villeArrivee;
 	private String busNumber;
@@ -86,6 +87,7 @@ public class DepartsDto extends _DepartsDto implements Cloneable{
 	private SearchParam<String>   villeDepartParam     ;
 	private SearchParam<String>   villeArriveeParam     ;
 	private SearchParam<String>   busNumberParam     ;
+	private SearchParam<Integer>   companiesIdParam     ;
     /**
      * Default constructor
      */

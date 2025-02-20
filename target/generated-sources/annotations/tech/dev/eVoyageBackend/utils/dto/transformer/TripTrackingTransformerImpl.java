@@ -12,7 +12,7 @@ import tech.dev.eVoyageBackend.utils.dto.TripTrackingDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-30T15:57:22+0100",
+    date = "2025-02-12T09:52:09+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class TripTrackingTransformerImpl implements TripTrackingTransformer {

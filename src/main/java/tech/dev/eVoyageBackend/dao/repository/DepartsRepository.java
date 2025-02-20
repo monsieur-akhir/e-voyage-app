@@ -280,6 +280,9 @@ public interface DepartsRepository extends JpaRepository<Departs, Integer>, _Dep
 			if (dto.getId()!= null && dto.getId() > 0) {
 				listOfQuery.add(CriteriaUtils.generateCriteria("id", dto.getId(), "e.id", "Integer", dto.getIdParam(), param, index, locale));
 			}
+			if (dto.getCompaniesId()!=null && dto.getCompaniesId() > 0) {
+				listOfQuery.add(CriteriaUtils.generateCriteria("companiesId", dto.getCompaniesId(), "e.buses.companies.id", "Integer", dto.getCompaniesIdParam(), param, index, locale));
+			}
 			if (dto.getDepartureDate()!= null) {
 				listOfQuery.add(CriteriaUtils.generateCriteria("departureDate", dto.getDepartureDate(), "e.departureDate", "String", dto.getDepartureDateParam(), param, index, locale));
 			}

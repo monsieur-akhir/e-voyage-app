@@ -49,6 +49,7 @@ public class BookingsDto extends _BookingsDto implements Cloneable{
     private Integer    userId               ;
     private Integer    originStationId      ;
     private Integer    destinationStationId ;
+	private Double 		price;
 
     //----------------------------------------------------------------------
     // ENTITY LINKS FIELD ( RELATIONSHIP )
@@ -90,6 +91,7 @@ public class BookingsDto extends _BookingsDto implements Cloneable{
 	private SearchParam<String>   villeArriveeParam      ;
 	private SearchParam<String>   villeDepartParam       ;
 	private SearchParam<String>   numeroCarParam         ;
+	private SearchParam<Double>   priceParam      ;
     /**
      * Default constructor
      */

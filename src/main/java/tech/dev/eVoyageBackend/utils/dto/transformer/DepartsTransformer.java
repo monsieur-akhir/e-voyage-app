@@ -43,6 +43,7 @@ public interface DepartsTransformer {
 		@Mapping(source="entity.buses.id", target="busId"),
 		@Mapping(source="entity.buses.busNumber", target="busNumber"),
 		@Mapping(source="entity.buses.companies.name", target="companiesName"),
+		@Mapping(source="entity.buses.companies.id", target="companiesId"),
 		@Mapping(source="entity.stations2.id", target="destinationStationId"),
 		@Mapping(source="entity.stations2.name", target="stationsNameArrival"),
 		@Mapping(source="entity.stations2.cities.name", target="villeArrivee"),

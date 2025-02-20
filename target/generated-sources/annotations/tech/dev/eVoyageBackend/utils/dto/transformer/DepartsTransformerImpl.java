@@ -14,7 +14,7 @@ import tech.dev.eVoyageBackend.utils.dto.DepartsDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-30T15:57:22+0100",
+    date = "2025-02-12T09:52:18+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class DepartsTransformerImpl implements DepartsTransformer {
@@ -39,6 +39,7 @@ public class DepartsTransformerImpl implements DepartsTransformer {
         departsDto.setBusId( entityBusesId( entity ) );
         departsDto.setBusNumber( entityBusesBusNumber( entity ) );
         departsDto.setCompaniesName( entityBusesCompaniesName( entity ) );
+        departsDto.setCompaniesId( entityBusesCompaniesId( entity ) );
         departsDto.setDestinationStationId( entityStations2Id( entity ) );
         departsDto.setStationsNameArrival( entityStations2Name( entity ) );
         departsDto.setVilleArrivee( entityStations2CitiesName( entity ) );
@@ -162,6 +163,25 @@ public class DepartsTransformerImpl implements DepartsTransformer {
             return null;
         }
         return name;
+    }
+
+    private Integer entityBusesCompaniesId(Departs departs) {
+        if ( departs == null ) {
+            return null;
+        }
+        Buses buses = departs.getBuses();
+        if ( buses == null ) {
+            return null;
+        }
+        Companies companies = buses.getCompanies();
+        if ( companies == null ) {
+            return null;
+        }
+        Integer id = companies.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
     }
 
     private Integer entityStations2Id(Departs departs) {

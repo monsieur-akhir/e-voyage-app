@@ -246,6 +246,9 @@ public interface TicketsRepository extends JpaRepository<Tickets, Integer>, _Tic
 			if (dto.getId()!= null && dto.getId() > 0) {
 				listOfQuery.add(CriteriaUtils.generateCriteria("id", dto.getId(), "e.id", "Integer", dto.getIdParam(), param, index, locale));
 			}
+			if (dto.getClientId()!= null && dto.getClientId() > 0) {
+				listOfQuery.add(CriteriaUtils.generateCriteria("clientId", dto.getClientId(), "e.bookings.users.id", "Integer", dto.getClientIdParam(), param, index, locale));
+			}
 			if (Utilities.notBlank(dto.getQrCode())) {
 				listOfQuery.add(CriteriaUtils.generateCriteria("qrCode", dto.getQrCode(), "e.qrCode", "String", dto.getQrCodeParam(), param, index, locale));
 			}

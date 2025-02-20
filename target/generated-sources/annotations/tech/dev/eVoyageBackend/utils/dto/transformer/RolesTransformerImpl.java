@@ -10,7 +10,7 @@ import tech.dev.eVoyageBackend.utils.dto.RolesDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-30T15:57:21+0100",
+    date = "2025-02-12T09:52:18+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class RolesTransformerImpl implements RolesTransformer {

@@ -340,6 +340,7 @@ public class PaymentsBusiness implements IBasicBusiness<Request<PaymentsDto>, Re
 			ticket.setStatus("VALID");
 			ticket.setBookings(existingBookings);
 			ticket.setCompanies(existingCompanies);
+			ticket.setIsDeleted(false);
 			ticket.setCreatedAt(Utilities.getCurrentDate());
 			Tickets savedTicket = ticketsRepository.save(ticket);
 

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databases defaultId="1" maxId="10">
-    <db dialect="org.hibernate.dialect.MySQLDialect" driver="com.mysql.jdbc.Driver" id="0" isolationLevel="" name="MYSQL" poolSize="1" typeName="MYSQL" url="jdbc:mysql://62.72.18.97:3306/e_voyage">
-        <property name="user" value="e_voyage_user"/>
-        <property name="password" value="Voyage2024#!"/>
+    <db dialect="org.hibernate.dialect.MySQLDialect" driver="com.mysql.jdbc.Driver" id="0" isolationLevel="" name="MYSQL" poolSize="1" typeName="MYSQL" url="jdbc:mysql://localhost:3306/pharma_delivery?serverTimezone=Africa/Casablanca">
+        <property name="user" value="root"/>
+        <property name="password" value=""/>
         <metadata catalog="e_voyage" schema="TO_BE_DEFINED" table-name-exclude="" table-name-include="" table-name-pattern="%" table-types="TABLE"/>
+    </db>
+    <db dialect="org.hibernate.dialect.MySQLDialect" driver="com.mysql.jdbc.Driver" id="1" isolationLevel="" name="MYSQL" poolSize="1" typeName="MYSQL" url="jdbc:mysql://localhost:3306/pharma_delivery?serverTimezone=Africa/Casablanca">
+        <property name="user" value="root"/>
+        <property name="password" value=""/>
+        <metadata catalog="" schema="TO_BE_DEFINED" table-name-exclude="" table-name-include="" table-name-pattern="%" table-types="TABLE"/>
     </db>
 </databases>

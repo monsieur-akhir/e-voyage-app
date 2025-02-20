@@ -50,6 +50,7 @@ public interface BookingsTransformer {
 		@Mapping(source="entity.stations2.name", target="stationsArrivalName"),
 		@Mapping(source="entity.stations2.cities.name", target="villeArrivee"),
 		@Mapping(source="entity.departs.id", target="departureId"),
+		@Mapping(source = "entity.departs.price", target = "price"),
 		@Mapping(source="entity.stations.id", target="originStationId"),
 		@Mapping(source="entity.stations.name", target="stationsDepartureName"),
 		@Mapping(source="entity.stations.cities.name", target="villeDepart"),

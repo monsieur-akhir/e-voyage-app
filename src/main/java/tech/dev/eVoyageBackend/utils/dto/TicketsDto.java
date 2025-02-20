@@ -45,11 +45,13 @@ public class TicketsDto extends _TicketsDto implements Cloneable{
 	private String     deletedAt            ;
     private Integer    deletedBy            ;
 
+
     //----------------------------------------------------------------------
     // ENTITY LINKS FIELD ( RELATIONSHIP )
     //----------------------------------------------------------------------
 	private String companiesName;
 	private String usersName;
+	private Integer clientId;
 
 	// Search param
 	private SearchParam<Integer>  idParam               ;                     
@@ -66,7 +68,8 @@ public class TicketsDto extends _TicketsDto implements Cloneable{
 	private SearchParam<String>   deletedAtParam        ;                     
 	private SearchParam<Integer>  deletedByParam        ;                     
 	private SearchParam<String>   companiesNameParam    ;                     
-	private SearchParam<String>   usersNameParam        ;                     
+	private SearchParam<String>   usersNameParam        ;
+	private SearchParam<Integer>  clientIdParam         ;
     /**
      * Default constructor
      */

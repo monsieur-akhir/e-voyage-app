@@ -13,7 +13,7 @@ import tech.dev.eVoyageBackend.utils.dto.TicketsDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-30T15:57:21+0100",
+    date = "2025-02-12T09:52:10+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class TicketsTransformerImpl implements TicketsTransformer {
@@ -38,6 +38,7 @@ public class TicketsTransformerImpl implements TicketsTransformer {
         ticketsDto.setCompanyId( entityCompaniesId( entity ) );
         ticketsDto.setCompaniesName( entityCompaniesName( entity ) );
         ticketsDto.setBookingId( entityBookingsId( entity ) );
+        ticketsDto.setClientId( entityBookingsUsersId( entity ) );
         ticketsDto.setScannedBy( entityUsersId( entity ) );
         ticketsDto.setUsersName( entityUsersName( entity ) );
         ticketsDto.setId( entity.getId() );
@@ -137,6 +138,25 @@ public class TicketsTransformerImpl implements TicketsTransformer {
             return null;
         }
         Integer id = bookings.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
+    }
+
+    private Integer entityBookingsUsersId(Tickets tickets) {
+        if ( tickets == null ) {
+            return null;
+        }
+        Bookings bookings = tickets.getBookings();
+        if ( bookings == null ) {
+            return null;
+        }
+        Users users = bookings.getUsers();
+        if ( users == null ) {
+            return null;
+        }
+        Integer id = users.getId();
         if ( id == null ) {
             return null;
         }

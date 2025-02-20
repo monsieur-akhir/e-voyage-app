@@ -16,7 +16,7 @@ import tech.dev.eVoyageBackend.utils.dto.BookingsDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-30T15:57:21+0100",
+    date = "2025-02-12T09:52:14+0100",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.21 (Oracle Corporation)"
 )
 public class BookingsTransformerImpl implements BookingsTransformer {
@@ -48,6 +48,7 @@ public class BookingsTransformerImpl implements BookingsTransformer {
         bookingsDto.setStationsArrivalName( entityStations2Name( entity ) );
         bookingsDto.setVilleArrivee( entityStations2CitiesName( entity ) );
         bookingsDto.setDepartureId( entityDepartsId( entity ) );
+        bookingsDto.setPrice( entityDepartsPrice( entity ) );
         bookingsDto.setOriginStationId( entityStationsId( entity ) );
         bookingsDto.setStationsDepartureName( entityStationsName( entity ) );
         bookingsDto.setVilleDepart( entityStationsCitiesName( entity ) );
@@ -268,6 +269,21 @@ public class BookingsTransformerImpl implements BookingsTransformer {
             return null;
         }
         return id;
+    }
+
+    private Double entityDepartsPrice(Bookings bookings) {
+        if ( bookings == null ) {
+            return null;
+        }
+        Departs departs = bookings.getDeparts();
+        if ( departs == null ) {
+            return null;
+        }
+        Double price = departs.getPrice();
+        if ( price == null ) {
+            return null;
+        }
+        return price;
     }
 
     private Integer entityStationsId(Bookings bookings) {

@@ -43,6 +43,7 @@ public interface TicketsTransformer {
 		@Mapping(source="entity.companies.id", target="companyId"),
 		@Mapping(source="entity.companies.name", target="companiesName"),
 		@Mapping(source="entity.bookings.id", target="bookingId"),
+		@Mapping(source = "entity.bookings.users.id", target = "clientId"),
 		@Mapping(source="entity.users.id", target="scannedBy"),
 		@Mapping(source="entity.users.name", target="usersName"),
 	})
